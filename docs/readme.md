@@ -9,3 +9,6 @@ Com ara es pot veure hi ha un altre parraf, si es mira el codi es veura com s'ha
 ## Aixo es un titul de 2 nivell
 ### Aixo es un titul de 3 nivell
 #### Aixo es un titul de 4 nivell
+
+Despres tambe es poden posar imatges, per a fer-ho cal fer-ho de la següent manera:
+![Imatge d'un error](imatges/Capturapantalla.png)
