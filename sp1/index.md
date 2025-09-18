@@ -55,6 +55,7 @@ Aquest apartat normalment no es modifica i, com el seu nom indica, s'encarrega d
 
 Aquest apartat permet configurar com la màquina virtual es connectarà a la xarxa i a Internet. En aquest cas s'ha escollit l'opció de **NAT**, donat que la màquina rep una IP privada dins d'una xarxa virtual interna, cosa que permet que la màquina virtual no ocupi IPs de la xarxa existent. Així, depenent de les configuracions aplicades a la màquina virtual, aquestes no afectaran la xarxa ni els equips externs a la màquina virtual.  
 VirtualBox permet assignar diferents modalitats de configuració de xarxa: NAT, Bridged (adaptador pont), Internal Network, Host-only i NAT Network, cadascuna amb les seves característiques.
+Per a mes informació sobre les diferents opcions de xarxa de Virtualbox es pot consultar el fitxer [xarxes_virtualbox.md](xarxes_virtualbox.md)
 
 #### Apartat 7 USB
 
