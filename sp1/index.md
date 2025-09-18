@@ -130,7 +130,7 @@ Aquesta organització garanteix que Ubuntu s’instal·li correctament i que el 
 
 Despres de la creació de les particions ja s'inicia la instal·lació del sistema operatiu i es configuren la resta d'opcions de instal·lació del sistema operatiu. Ja gairebe al final de la instal·lació nomes queda la creació de l'usuari aixi com el nom que se li donara al equip.
 
-![Imatge de la creació de l'usuari i nom de l'equip](../imatges/imatge_creacio_usuari.jpg)
+![Imatge de la creació de l'usuari i nom de l'equip](../imatges/Imatge_creacio_usuari.jpg)
 
 ### Creació de l’usuari principal a Ubuntu
 
