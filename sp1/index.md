@@ -76,7 +76,7 @@ Arribats a aquesta pantalla gairebe inicial, aqui es on es pot escollir l'idioma
 
 Continuant amb la instal·lació finalment s'arriba a la pantalla possiblement mes important de la instal·lació que es la creació de les particions. Les particions finalment han quedat de la seguent manera.
 
-! [Pantalla de particions](../imatges/pantalla_particions_ubuntu.jpg)
+![Pantalla de particions](../imatges/pantalla_particions_ubuntu.jpg)
 
 ### Esquema de particions per a la instal·lació d’Ubuntu
 
