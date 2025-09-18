@@ -74,6 +74,60 @@ En primer lloc apareix la pantalla per a escullir si volem instal·lar-lo o nome
 
 Arribats a aquesta pantalla gairebe inicial, aqui es on es pot escollir l'idioma del sistema operatiu i despres si el que es vol fer es la instal·lació o nomes probar-lo, que seria el mateix que dir que ens genera un sistema operatiu portable i que en parar-ho desapareix completament. En aquest cas polsarem sobre el boto Instalar Ubuntu i començara la instal·lació del sistema operatiu.
 
+Continuant amb la instal·lació finalment s'arriba a la pantalla possiblement mes important de la instal·lació que es la creació de les particions. Les particions finalment han quedat de la seguent manera.
+
+! [Pantalla de particions](../imatges/pantalla_particions_ubuntu.jpg)
+
+### Esquema de particions per a la instal·lació d’Ubuntu
+
+Durant la instal·lació d’Ubuntu, s’ha optat per la **creació manual de particions**, definint un esquema adaptat a un disc dur virtual de 80 GB. Aquest esquema permet al sistema funcionar correctament i tenir una bona organització dels espais de memòria.
+
+#### Particions creades
+
+- **/dev/sda1 → Partició EFI (799 MB, tipus ext4)**
+  - Aquesta partició és necessària quan s’utilitza el sistema d’arrencada **UEFI** que es la que s'ha activat a l'hora de crear la maquina virtual.  
+  - Conté els fitxers essencials perquè l’ordinador pugui iniciar el carregador d’arrencada (GRUB en el cas d’Ubuntu).  
+  - Encara que sembli petita, es suficient i és imprescindible per a l’arrencada del sistema.
+
+- **/dev/sda2 → Partició arrel “/” (38 GB, ext4)**
+  - Aquesta és la partició principal on s’instal·la el sistema operatiu.  
+  - Conté tots els directoris del sistema (`/home`, `/bin`, `/etc`, etc.) i les aplicacions.  
+  - S’ha escollit el sistema de fitxers **ext4**, el més habitual en Linux, ja que és robust, eficient i amb bona gestió de journaling.
+
+- **/dev/sda3 → Partició swap (4 GB)**
+  - Espai reservat per al **swap**, que actua com a memòria virtual addicional quan la memòria RAM física no és suficient.  
+  - També és útil per permetre la funció d’**hibernació** (guardar l’estat de la sessió al disc).  
+  - En aquest cas s’han assignat 4 GB, una mida adequada per a un sistema amb 8 Gb de RAM com el de la maquina virtual.
+
+- **Espai lliure (43.098 MB)**
+  - Encara hi ha espai disponible al disc dur virtual per crear noves particions si cal, per exemple:
+    - Una partició **/home** separada per a les dades dels usuaris. En aquest cas no s'ha creat aquesta particio per la qual cosa quedara inclosa a la particio arrel.
+    - Una partició addicional per a proves o altres sistemes.  
+
+## El sistema de particions en Linux
+
+En Linux, a diferència de Windows, no s’utilitzen lletres de unitat (com `C:` o `D:`).  
+Tot el sistema s’organitza sota un únic **arbre de directoris**, que comença a la **arrel “/”**.  
+
+- **/** → Punt de muntatge principal (arrel).  
+- **/boot o EFI** → Fitxers d’arrencada del sistema.  
+- **/home** → Carpeta dels usuaris (opcions de configuració i fitxers personals).  
+- **swap** → Espai de memòria virtual.  
+
+Aquest model flexible permet dividir el disc en diferents particions segons les necessitats, millorant el rendiment, la seguretat i la gestió del sistema.
+
+---
+
+## Resum
+
+En aquest cas s’ha creat un esquema simple però funcional:
+- **EFI** per a l’arrencada.  
+- **/** com a partició principal del sistema i carpeta **home** (38 GB).  
+- **swap** per a memòria virtual (4 GB).  
+- **Espai lliure** per a futures ampliacions.  
+
+Aquesta organització garanteix que Ubuntu s’instal·li correctament i que el sistema pugui arrencar i funcionar amb estabilitat.
+
 
 # Llicenciament
 # Gestors d'arrencada per a instal·lacions DUALS
