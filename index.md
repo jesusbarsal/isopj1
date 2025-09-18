@@ -1,17 +1,13 @@
 ---
 layout: default
-title: "Curso de Machine Learning"
+title: "Curs d'implantació de sistemes operatius "
 ---
 
-Este repositorio contiene el material del curso de Machine Learning desarrollado por Mireia Consarnau.
+Aquest repositori compte el contingut dels exercicis que se'ns va demanant a la classe d'implantació de sistemes operatius
 
-- Índice y enlaces a las unidades del curso.
-- Recursos en formato PDF, vídeos, y Google Colab.
-- Código y ejemplos prácticos.
+## Llicencia
 
-## Licencia
-
-El contenido está bajo licencia [Creative Commons BY-NC-SA 3.0 ES](LICENSE.md).
+El contingut està baix la llicencia [Creative Commons BY-NC-SA 3.0 ES](LICENSE.md).
 
 ## Contenido del curso
 
