@@ -104,7 +104,7 @@ Durant la instal·lació d’Ubuntu, s’ha optat per la **creació manual de pa
     - Una partició **/home** separada per a les dades dels usuaris. En aquest cas no s'ha creat aquesta particio per la qual cosa quedara inclosa a la particio arrel.
     - Una partició addicional per a proves o altres sistemes.  
 
-## El sistema de particions en Linux
+#### El sistema de particions en Linux
 
 En Linux, a diferència de Windows, no s’utilitzen lletres de unitat (com `C:` o `D:`).  
 Tot el sistema s’organitza sota un únic **arbre de directoris**, que comença a la **arrel “/”**.  
@@ -118,7 +118,7 @@ Aquest model flexible permet dividir el disc en diferents particions segons les 
 
 ---
 
-## Resum
+#### Resum
 
 En aquest cas s’ha creat un esquema simple però funcional:
 - **EFI** per a l’arrencada.  
@@ -128,8 +128,56 @@ En aquest cas s’ha creat un esquema simple però funcional:
 
 Aquesta organització garanteix que Ubuntu s’instal·li correctament i que el sistema pugui arrencar i funcionar amb estabilitat.
 
+Despres de la creació de les particions ja s'inicia la instal·lació del sistema operatiu i es configuren la resta d'opcions de instal·lació del sistema operatiu. Ja gairebe al final de la instal·lació nomes queda la creació de l'usuari aixi com el nom que se li donara al equip.
+
+![Imatge de la creació de l'usuari i nom de l'equip](../imatges/imatge_creacio_usuari.jpg)
+
+### Creació de l’usuari principal a Ubuntu
+
+Aquesta pantalla estableix tant la informació d’identitat com les credencials que s’utilitzaran per iniciar sessió i administrar el sistema.
+
+#### Camps configurables
+
+- **El seu nom** Es tracta del nom complet de la persona usuària (en aquest cas, *Jesus*).  
+  Aquest nom es mostra en l’entorn gràfic i a les pantalles de benvinguda.
+
+- **El nom de l’equip** Identifica l’ordinador dins de la xarxa.  
+  En aquest cas, s’ha assignat *jesus-VirtualBox*, de manera que altres dispositius poden reconèixer aquest equip quan es connecta a una xarxa.
+
+- **Nom d’usuari** És l’identificador que s’utilitza per iniciar sessió i a la terminal.  
+  Sol ser en minúscules i sense espais (per exemple, *jesus*).  
+  Aquest usuari tindrà permisos d’administració mitjançant l’ordre `sudo`.
+
+- **Contrasenya** Clau d’accés que protegeix l’usuari.  
+  Ha de ser prou robusta (combinació de lletres, números i símbols) per garantir la seguretat del sistema.  
+  També es demana repetir-la per evitar errors de tecleig.
+
+#### Opcions d’inici de sessió
+
+- **Iniciar sessió automàticament** L’usuari accedeix al sistema sense introduir la contrasenya cada vegada que arrenca l’ordinador.  
+  Pot ser còmode, però menys segur.
+
+- **Sol·licitar contrasenya per iniciar sessió** El sistema demana sempre la contrasenya en arrencar.  
+  És la opció **més recomanada** per protegir l’equip i les dades.
+
+- **Utilitzar Active Directory** Permet connectar l’ordinador a un **domini corporatiu de Microsoft Active Directory**.  
+  Aquesta opció no és necessària en entorns domèstics o d’ús personal, però sí en xarxes d’empresa on els usuaris i permisos es gestionen centralitzadament.
+
+#### Importància d’aquest pas
+
+Aquest és un dels punts més importants de la instal·lació:
+- Es defineix **l’usuari principal** del sistema, que serà l’administrador inicial.  
+- Es configura la **seguretat d’accés** amb una contrasenya robusta.  
+- Es determina com es **presentarà l’equip a la xarxa** (nom de l’ordinador).  
+
+Una configuració correcta aquí garanteix que el sistema estigui protegit i preparat per treballar tant en entorns personals com en xarxes més grans.
+
+Despres d'aixo ja tindriem configurat l'Ubuntu i nomes quedaria la personalització de l'usuari per a que aparegui la pantalla de l'escritori i puguem donar per acabada la instal·lació del sistema operatiu. Despres d'acabar la instal·lació seria necessaria la instal·lacio de les Guest Additions i les actualitzacions corresponents.
 
 # Llicenciament
+
+Per tal de poder veure el llicenciament d'Ubuntu es pot lleguir el fitxer [license.md](license.md)
+
 # Gestors d'arrencada per a instal·lacions DUALS
 # Punts de restauració
 # Configuració de la xarxa
