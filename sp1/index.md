@@ -20,15 +20,15 @@ En aquest primer apartat, unicament el que es fa es escriure el nom que se li vo
 
 #### Apartat 2 Sistema
 
-**memoria Ram:** S'han assignat 8 Gb de ram, suficient per a poder fer funcionar correctament un Ubuntu Desktop i mes que de sobres en aquest cas donat que per a la instal·lació del sistema operatiu, i de sobres per a assignar-les donat que l'equip anfitrio disposa de 32 Gb de ram.
+-**memoria Ram:** S'han assignat 8 Gb de ram, suficient per a poder fer funcionar correctament un Ubuntu Desktop i mes que de sobres en aquest cas donat que per a la instal·lació del sistema operatiu, i de sobres per a assignar-les donat que l'equip anfitrio disposa de 32 Gb de ram.
 
-**Processador**: En aquest cas s'han assignat 2 CPU suficient per a la instal·lació del sistema operatiu i posterior funcionament, amb 2 cpu, permet el funcionament del sistema operatiu virtual i de l'anfitrio, i d'aquesta manera permet el funcionament de mes d'una maquina virtual de forma simultanea sense haver-hi una perdua considerable de rendiment.
+-**Processador**: En aquest cas s'han assignat 2 CPU suficient per a la instal·lació del sistema operatiu i posterior funcionament, amb 2 cpu, permet el funcionament del sistema operatiu virtual i de l'anfitrio, i d'aquesta manera permet el funcionament de mes d'una maquina virtual de forma simultanea sense haver-hi una perdua considerable de rendiment.
 
-**Ordre d'arrancada:** Quant a l'ordre d'arrancada es deixa l'opcio per defecte que dona l'aplicació i que es perfectament valida per a l'arrancada
+-**Ordre d'arrancada:** Quant a l'ordre d'arrancada es deixa l'opcio per defecte que dona l'aplicació i que es perfectament valida per a l'arrancada
 
-**EFI:** Aquesta opció en l'actualitat es una opcio que ja es recomendable activar-la en tot moment, basicament el que fa es que al instal·lar el sistema operatiu, aquest reconegui que "l'ordinador" sobre el que es realitza la instal·lacio ja disposa de UEFI i no de bios, per la qual cosa ja es l'opcio recomanada donat que en l'actualitat ja tots els equips moderns ja funcionen per UEFI i no per BIOS.
+-**EFI:** Aquesta opció en l'actualitat es una opcio que ja es recomendable activar-la en tot moment, basicament el que fa es que al instal·lar el sistema operatiu, aquest reconegui que "l'ordinador" sobre el que es realitza la instal·lacio ja disposa de UEFI i no de bios, per la qual cosa ja es l'opcio recomanada donat que en l'actualitat ja tots els equips moderns ja funcionen per UEFI i no per BIOS.
 
-**Acceleracio:** Aqui es on es pot configurar com s'utilitzen les funcionalitats de virtualització del processador del equip anfitrio Aquests parametres influeixen en el rendiment i la compatibilitat de la maquina virtual
+-**Acceleracio:** Aqui es on es pot configurar com s'utilitzen les funcionalitats de virtualització del processador del equip anfitrio Aquests parametres influeixen en el rendiment i la compatibilitat de la maquina virtual
 
 #### Apartat 3 Pantalla
 
