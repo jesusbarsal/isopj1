@@ -99,6 +99,7 @@ Durant la instal·lació d’Ubuntu, s’ha optat per la **creació manual de pa
   - Espai reservat per al **swap**, que actua com a memòria virtual addicional quan la memòria RAM física no és suficient.  
   - També és útil per permetre la funció d’**hibernació** (guardar l’estat de la sessió al disc).  
   - En aquest cas s’han assignat 4 GB, una mida adequada per a un sistema amb 8 GB de RAM com el de la màquina virtual.
+  - Per a mes informació sobre la particio swap es pot lleguir el fitxer [particio_swap.md](particio_swap.md)
 
 - **Espai lliure (43.098 MB)**
   - Encara hi ha espai disponible al disc dur virtual per crear noves particions si cal, per exemple:
