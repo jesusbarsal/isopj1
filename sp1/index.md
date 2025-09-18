@@ -49,11 +49,26 @@ Per l'altre costat es troba el controlador SATA que aquest si que ja es el siste
 
 #### Apartat 5 Àudio
 
-Aquest apartat es un apartat que normalment no es modifica i com el seu nom indica, s'encarrega d'assignar la targeta de so per a la maquina virtual per tal de poder treballar amb sons. Normalment no es modifica i unicament s'activa o desactiva l'opció depenen del que es vulgue aconseguir.
+- Aquest apartat es un apartat que normalment no es modifica i com el seu nom indica, s'encarrega d'assignar la targeta de so per a la maquina virtual per tal de poder treballar amb sons. Normalment no es modifica i unicament s'activa o desactiva l'opció depenen del que es vulgue aconseguir.
 
 #### Apartat 6 Xarxa
 
+- Aquest apartat permet configurar com la maquina virtual es connectara a la xarxa i a internet. En aquest cas s'ha escollit l'opcio de NAT donat que aixo la maquina rep una ip privada de dintre d'una xarxa virtual interna el que permet que la maquina virtual no ocupi ips de la xarxa existent, i depenent de les configuracions a aplicar a la maquina virtual aquestes no afecten a la xarxa i equips aliens de la maquina virtual.
 
+Virtualbox permet assignar diferents modalitats de configuració de xarxa. Les opcions son NAT, Bridged o adaptador pont, Internal Network, Host-only i Nat Network, cadascuna amb les seves caracteristiques que les defineixen i diferencien.
+
+#### Apartat 7 USB
+
+- En aquest apartat hi trobem la configuració per als ports USB que disposara la maquina virtual, podent assignar-hi ports USB 2.0, 3.0, etc. Amb aquesta opció es pot gestionar els dispositius USB fisics permetent que el sistema Ubuntu en aquest cas, els vegui com si estiguessin els dispositius USB conectats a ell mateix i no a l'amfitrio.
+
+#### Apartat 8 Carpetes compartides
+
+- Les carpetes compartides permeten que una màquina virtual accedeixi a carpetes o directoris de l’ordinador amfitrió com si fossin unitats locals dins del sistema convidat.
+Això facilita enormement l’intercanvi de dades sense haver de copiar-les amb memòries USB ni utilitzar xarxa.
+
+## Instal·lació del sistema operatiu.
+
+Revisades les opcions de la maquina virtual es comença amb la instal·lació de l'Ubuntu, per la qual cosa es polsa sobre el boto de inicialitzar i comença la instal·lació. Dintre de les parts de la instal·lacio es mencionaran les parts mes importants.
 
 # Llicenciament
 # Gestors d'arrencada per a instal·lacions DUALS
