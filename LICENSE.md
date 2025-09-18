@@ -55,4 +55,4 @@ Aquesta és una traducció i resum informatiu. El text jurídicament vinculant �
 ---
 
 
-© 2025 Mireia Consarnau
+© 2025 Jesús Barceló
