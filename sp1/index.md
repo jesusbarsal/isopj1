@@ -54,7 +54,6 @@ Per l'altre costat es troba el controlador SATA que aquest si que ja es el siste
 #### Apartat 6 Xarxa
 
 - Aquest apartat permet configurar com la maquina virtual es connectara a la xarxa i a internet. En aquest cas s'ha escollit l'opcio de NAT donat que aixo la maquina rep una ip privada de dintre d'una xarxa virtual interna el que permet que la maquina virtual no ocupi ips de la xarxa existent, i depenent de les configuracions a aplicar a la maquina virtual aquestes no afecten a la xarxa i equips aliens de la maquina virtual.
-
 Virtualbox permet assignar diferents modalitats de configuració de xarxa. Les opcions son NAT, Bridged o adaptador pont, Internal Network, Host-only i Nat Network, cadascuna amb les seves caracteristiques que les defineixen i diferencien.
 
 #### Apartat 7 USB
@@ -69,6 +68,12 @@ Això facilita enormement l’intercanvi de dades sense haver de copiar-les amb 
 ## Instal·lació del sistema operatiu.
 
 Revisades les opcions de la maquina virtual es comença amb la instal·lació de l'Ubuntu, per la qual cosa es polsa sobre el boto de inicialitzar i comença la instal·lació. Dintre de les parts de la instal·lacio es mencionaran les parts mes importants.
+En primer lloc apareix la pantalla per a escullir si volem instal·lar-lo o nomes provar-lo
+
+![Pantalla de benvinguda](../imatges/pantalla_inici_ubuntu.jpg)
+
+Arribats a aquesta pantalla gairebe inicial, aqui es on es pot escollir l'idioma del sistema operatiu i despres si el que es vol fer es la instal·lació o nomes probar-lo, que seria el mateix que dir que ens genera un sistema operatiu portable i que en parar-ho desapareix completament. En aquest cas polsarem sobre el boto Instalar Ubuntu i començara la instal·lació del sistema operatiu.
+
 
 # Llicenciament
 # Gestors d'arrencada per a instal·lacions DUALS
