@@ -12,7 +12,7 @@ Per tal de poder realitzar la instal·lació d'Ubuntu, i com que no podem realit
 
 Com ja hem dit per a la maquina virtual s'ha utilitzat l'aplicacio Virtualbox, a continuació s'exposarà la configuració que s'ha realitzat per tal de crear la maquina virtual.
 
-![Resum de les opcions aplicades a Virtualbox](imatges/pantalla_virtualbox.jpg)
+![Resum de les opcions aplicades a Virtualbox](../imatges/pantalla_virtualbox.jpg)
 
 ## Llicenciament
 ## Gestors d'arrencada per a instal·lacions DUALS
