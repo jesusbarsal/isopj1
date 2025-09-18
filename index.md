@@ -7,9 +7,9 @@ Aquest repositori compte el contingut dels exercicis que se'ns va demanant a la 
 
 ## Llicencia
 
-El contingut està baix la llicencia [Creative Commons BY-NC-SA 3.0 ES](LICENSE.md).
+El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internacional](LICENSE.md).
 
-## Contenido del curso
+## Contingut del curs
 
-### [Unidad 1. Fundamentos de la Inteligencia Artificial y el Aprendizaje Automático](unidad1/unidad1.md)  
+### [Unitat 1. Sprint1: Instal·lació i configuració inicial (sp1/index.md)
 
