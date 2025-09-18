@@ -1,80 +1,79 @@
 ---
 layout: default
-title: "Sprint1 1: Instal·lació i configuracio inicial"
+title: "Sprint1 1: Instal·lació i configuració inicial"
 ---
 
 # Virtualització i instal·lació del SO Ubuntu
-## Virtualització amb Virtualbox
+## Virtualització amb VirtualBox
 
-Per tal de poder realitzar la instal·lació d'Ubuntu, i com que no podem realitzar-ho sobre una maquina fisica, hem d'utilitzar l'aplicació anomenada Virtualbox per tal de poder realitzar la instal·lació del sistema operatiu. L'elecció d'aquesta aplicació i no un altra com Vmware, es que aquesta es de codi lliure i gratuita, i per tant no es necessaria la compra de cap llicencia
+Per tal de poder realitzar la instal·lació d'Ubuntu, i com que no podem fer-ho sobre una màquina física, hem d'utilitzar l'aplicació anomenada VirtualBox per tal de poder realitzar la instal·lació del sistema operatiu. L'elecció d'aquesta aplicació i no una altra com VMware és que aquesta és de codi lliure i gratuïta, i per tant no és necessària la compra de cap llicència.
 
-### Creació de la maquina virtual
+### Creació de la màquina virtual
 
-Com ja hem dit per a la maquina virtual s'ha utilitzat l'aplicacio Virtualbox, a continuació s'exposarà la configuració que s'ha realitzat per tal de crear la maquina virtual.
+Com ja hem dit, per a la màquina virtual s'ha utilitzat l'aplicació VirtualBox. A continuació s'exposarà la configuració que s'ha realitzat per tal de crear la màquina virtual.
 
-![Resum de les opcions aplicades a Virtualbox](../imatges/pantalla_virtualbox.jpg)
+![Resum de les opcions aplicades a VirtualBox](../imatges/pantalla_virtualbox.jpg)
 
 #### Apartat 1 General
 
-En aquest primer apartat, unicament el que es fa es escriure el nom que se li vol donar a la maquina virtual i el propi Virtualbox si el nom esta relacionat amb el sistema operatiu a instal·lar la propia aplicacio ja li assigna el tipus de sistema operatiu a instalar.
+En aquest primer apartat, únicament el que es fa és escriure el nom que se li vol donar a la màquina virtual i el mateix VirtualBox, si el nom està relacionat amb el sistema operatiu a instal·lar, ja li assigna el tipus de sistema operatiu a instal·lar.
 
 #### Apartat 2 Sistema
 
-- **memoria Ram:** S'han assignat 8 Gb de ram, suficient per a poder fer funcionar correctament un Ubuntu Desktop i mes que de sobres en aquest cas donat que per a la instal·lació del sistema operatiu, i de sobres per a assignar-les donat que l'equip anfitrio disposa de 32 Gb de ram.
+- **Memòria RAM:** S'han assignat 8 GB de RAM, suficient per a poder fer funcionar correctament un Ubuntu Desktop i més que de sobres en aquest cas donat que per a la instal·lació del sistema operatiu n’hi ha prou, i a més l’equip amfitrió disposa de 32 GB de RAM.
 
-- **Processador**: En aquest cas s'han assignat 2 CPU suficient per a la instal·lació del sistema operatiu i posterior funcionament, amb 2 cpu, permet el funcionament del sistema operatiu virtual i de l'anfitrio, i d'aquesta manera permet el funcionament de mes d'una maquina virtual de forma simultanea sense haver-hi una perdua considerable de rendiment.
+- **Processador:** En aquest cas s'han assignat 2 CPU, suficient per a la instal·lació del sistema operatiu i el seu posterior funcionament. Amb 2 CPU es permet el funcionament del sistema operatiu virtual i de l'amfitrió, i d'aquesta manera es poden executar més d'una màquina virtual de forma simultània sense una pèrdua considerable de rendiment.
 
-- **Ordre d'arrancada:** Quant a l'ordre d'arrancada es deixa l'opcio per defecte que dona l'aplicació i que es perfectament valida per a l'arrancada
+- **Ordre d'arrencada:** Quant a l'ordre d'arrencada es deixa l'opció per defecte que dona l'aplicació i que és perfectament vàlida per a l'arrencada.
 
-- **EFI:** Aquesta opció en l'actualitat es una opcio que ja es recomendable activar-la en tot moment, basicament el que fa es que al instal·lar el sistema operatiu, aquest reconegui que "l'ordinador" sobre el que es realitza la instal·lacio ja disposa de UEFI i no de bios, per la qual cosa ja es l'opcio recomanada donat que en l'actualitat ja tots els equips moderns ja funcionen per UEFI i no per BIOS.
+- **EFI:** Aquesta opció, actualment, ja és recomanable activar-la en tot moment. Bàsicament el que fa és que en instal·lar el sistema operatiu aquest reconegui que “l'ordinador” sobre el qual es realitza la instal·lació ja disposa d’UEFI i no de BIOS. Per això és l'opció recomanada, ja que en l'actualitat tots els equips moderns funcionen amb UEFI i no amb BIOS.
 
-- **Acceleracio:** Aqui es on es pot configurar com s'utilitzen les funcionalitats de virtualització del processador del equip anfitrio Aquests parametres influeixen en el rendiment i la compatibilitat de la maquina virtual
+- **Acceleració:** Aquí és on es pot configurar com s'utilitzen les funcionalitats de virtualització del processador de l’equip amfitrió. Aquests paràmetres influeixen en el rendiment i la compatibilitat de la màquina virtual.
 
 #### Apartat 3 Pantalla
 
-- **Memoria de video** Des d'aquesta opció es pot assignar quina sira la quantitat de memoria que virtualbox assignara a la maquina virtual, aquest apartat afecta a la qualitat d'imatge, el rendiment i les funcionalitats multimedia. En aquest cas, s'han assignat 16 Mb donat que nomes es realitzara la instal·lació, el normal seria aplicar-hi 128 Mb que es el maxim aplicable, si s'actives l'opcio de 3D llavors es podria arribar fins a 256 Mb, pero inicialment unicament s'ha assignat el minim funcional.
+- **Memòria de vídeo:** Des d'aquesta opció es pot assignar quina serà la quantitat de memòria que VirtualBox assignarà a la màquina virtual. Aquest apartat afecta la qualitat d'imatge, el rendiment i les funcionalitats multimèdia. En aquest cas, s'han assignat 16 MB donat que només es realitzarà la instal·lació. El normal seria aplicar-hi 128 MB, que és el màxim aplicable. Si s'activés l'opció de 3D llavors es podria arribar fins a 256 MB, però inicialment únicament s'ha assignat el mínim funcional.
 
-- **Controlador de grafics:** Aquesta opció ofereix diferents controladors de video virtuals. Depenent de la versio de sistema operatiu cal assignar un tipus o un altre de controlador. En el cas per a Ubuntu cal assignar el que es veu a la imatge, es a dir VMSVGA que es el mes adequat per a instal·lacions de Linux.
+- **Controlador de gràfics:** Aquesta opció ofereix diferents controladors de vídeo virtuals. Depenent de la versió del sistema operatiu cal assignar un tipus o un altre de controlador. En el cas d’Ubuntu cal assignar el que es veu a la imatge, és a dir **VMSVGA**, que és el més adequat per a instal·lacions de Linux.
 
-- **Servei d'escriptori remot:** Per defecte no ve activat, en cas d'activar-ho, aquesta opció permet accedir a la maquina virtual de manera remota com si s'estigues davant de la seva pantalla. Treballa amb el protocol VRDP que es una extensió del RDP de Microsoft
+- **Servei d'escriptori remot:** Per defecte no ve activat. En cas d'activar-ho, aquesta opció permet accedir a la màquina virtual de manera remota com si estiguessis davant de la seva pantalla. Treballa amb el protocol VRDP, que és una extensió del RDP de Microsoft.
 
-- **Enregistrament:** Amb aquesta opció desactiva per defecte permet realitzar una gravacio de la maquina virtual en un format multimedia util per a documentar processos, formacions o demostracions.
+- **Enregistrament:** Aquesta opció, desactivada per defecte, permet realitzar una gravació de la màquina virtual en un format multimèdia útil per a documentar processos, formació o demostracions.
 
 #### Apartat 4 Emmagatzematge
 
-Aquest apartat es un dels mes importants de la creació de la maquina virtual, aqui es on es pot afegir, eliminar i configurar els dispositius d'emmagatzematge que tindrà la maquina virtual com ara discs durs, unitats optiques principalment.
+Aquest apartat és un dels més importants de la creació de la màquina virtual. Aquí és on es poden afegir, eliminar i configurar els dispositius d'emmagatzematge que tindrà la màquina virtual, com ara discos durs i unitats òptiques.
 
-- **Controlador** En aquest cas ens trobem amb dos apartats, el relacionat amb el lector de cd que per defecte ve amb una unitat IDE (sistema obsolet) per que encara funciona, i que si fos necessari es pot canviar per un de SATA mes adequat i actual, pero en aquest cas no es obligatori el seu canvi donat que encara continua funcionant. Aqui es on li assignarem la imatge ISO que tenim de l'Ubuntu per tal de que realitzi la instal·lació.
-Per l'altre costat es troba el controlador SATA que aquest si que ja es el sistema mes actual i es on se li assigna el disc dur virtual que s'ha creat abans (80 Gb en aquest cas) i que es on es col·locaran totes les dades de la maquina virtual. De cara a l'Ubuntu es el que seria el disc dur. El sistema permet l'assignacio de multiples discs durs virtuals aixi com de varis lectors, etc. 
+- **Controlador:** En aquest cas ens trobem amb dos apartats: el relacionat amb el lector de CD, que per defecte ve amb una unitat IDE (sistema obsolet) però que encara funciona. Si fos necessari es pot canviar per un de SATA més adequat i actual, però en aquest cas no és obligatori el canvi. Aquí és on li assignarem la imatge ISO que tenim de l'Ubuntu per tal que realitzi la instal·lació.  
+  Per l'altre costat hi ha el controlador SATA, que aquest sí que és el sistema més actual i on s’assigna el disc dur virtual que s'ha creat abans (80 GB en aquest cas) i que és on es col·locaran totes les dades de la màquina virtual. De cara a l'Ubuntu és el que seria el disc dur. El sistema permet l'assignació de múltiples discos durs virtuals així com de diversos lectors.
 
 #### Apartat 5 Àudio
 
-- Aquest apartat es un apartat que normalment no es modifica i com el seu nom indica, s'encarrega d'assignar la targeta de so per a la maquina virtual per tal de poder treballar amb sons. Normalment no es modifica i unicament s'activa o desactiva l'opció depenen del que es vulgue aconseguir.
+Aquest apartat normalment no es modifica i, com el seu nom indica, s'encarrega d'assignar la targeta de so per a la màquina virtual per tal de poder treballar amb sons. Normalment només s’activa o desactiva depenent del que es vulgui aconseguir.
 
 #### Apartat 6 Xarxa
 
-- Aquest apartat permet configurar com la maquina virtual es connectara a la xarxa i a internet. En aquest cas s'ha escollit l'opcio de NAT donat que aixo la maquina rep una ip privada de dintre d'una xarxa virtual interna el que permet que la maquina virtual no ocupi ips de la xarxa existent, i depenent de les configuracions a aplicar a la maquina virtual aquestes no afecten a la xarxa i equips aliens de la maquina virtual.
-Virtualbox permet assignar diferents modalitats de configuració de xarxa. Les opcions son NAT, Bridged o adaptador pont, Internal Network, Host-only i Nat Network, cadascuna amb les seves caracteristiques que les defineixen i diferencien.
+Aquest apartat permet configurar com la màquina virtual es connectarà a la xarxa i a Internet. En aquest cas s'ha escollit l'opció de **NAT**, donat que la màquina rep una IP privada dins d'una xarxa virtual interna, cosa que permet que la màquina virtual no ocupi IPs de la xarxa existent. Així, depenent de les configuracions aplicades a la màquina virtual, aquestes no afectaran la xarxa ni els equips externs a la màquina virtual.  
+VirtualBox permet assignar diferents modalitats de configuració de xarxa: NAT, Bridged (adaptador pont), Internal Network, Host-only i NAT Network, cadascuna amb les seves característiques.
 
 #### Apartat 7 USB
 
-- En aquest apartat hi trobem la configuració per als ports USB que disposara la maquina virtual, podent assignar-hi ports USB 2.0, 3.0, etc. Amb aquesta opció es pot gestionar els dispositius USB fisics permetent que el sistema Ubuntu en aquest cas, els vegui com si estiguessin els dispositius USB conectats a ell mateix i no a l'amfitrio.
+En aquest apartat hi trobem la configuració per als ports USB que disposarà la màquina virtual, podent assignar-hi ports USB 2.0, 3.0, etc. Amb aquesta opció es poden gestionar els dispositius USB físics, permetent que el sistema Ubuntu, en aquest cas, els vegi com si estiguessin connectats a ell mateix i no a l'amfitrió.
 
 #### Apartat 8 Carpetes compartides
 
-- Les carpetes compartides permeten que una màquina virtual accedeixi a carpetes o directoris de l’ordinador amfitrió com si fossin unitats locals dins del sistema convidat.
-Això facilita enormement l’intercanvi de dades sense haver de copiar-les amb memòries USB ni utilitzar xarxa.
+Les carpetes compartides permeten que una màquina virtual accedeixi a carpetes o directoris de l’ordinador amfitrió com si fossin unitats locals dins del sistema convidat. Això facilita enormement l’intercanvi de dades sense haver de copiar-les amb memòries USB ni utilitzar xarxa.
 
-## Instal·lació del sistema operatiu.
+## Instal·lació del sistema operatiu
 
-Revisades les opcions de la maquina virtual es comença amb la instal·lació de l'Ubuntu, per la qual cosa es polsa sobre el boto de inicialitzar i comença la instal·lació. Dintre de les parts de la instal·lacio es mencionaran les parts mes importants.
-En primer lloc apareix la pantalla per a escullir si volem instal·lar-lo o nomes provar-lo
+Revisades les opcions de la màquina virtual, es comença amb la instal·lació de l'Ubuntu. Per això es polsa sobre el botó d’inicialitzar i comença la instal·lació del sistema operatiu. Dins de les parts de la instal·lació es mencionaran les més importants.  
+En primer lloc apareix la pantalla per a escollir si volem instal·lar-lo o només provar-lo.
 
 ![Pantalla de benvinguda](../imatges/pantalla_inici_ubuntu.jpg)
 
-Arribats a aquesta pantalla gairebe inicial, aqui es on es pot escollir l'idioma del sistema operatiu i despres si el que es vol fer es la instal·lació o nomes probar-lo, que seria el mateix que dir que ens genera un sistema operatiu portable i que en parar-ho desapareix completament. En aquest cas polsarem sobre el boto Instalar Ubuntu i començara la instal·lació del sistema operatiu.
+Arribats a aquesta pantalla gairebé inicial, aquí és on es pot escollir l'idioma del sistema operatiu i després si el que es vol fer és la instal·lació o només provar-lo, que seria el mateix que generar un sistema operatiu portable i que en aturar-lo desapareix completament. En aquest cas polsarem sobre el botó **Instal·lar Ubuntu** i començarà la instal·lació del sistema operatiu.
 
-Continuant amb la instal·lació finalment s'arriba a la pantalla possiblement mes important de la instal·lació que es la creació de les particions. Les particions finalment han quedat de la seguent manera.
+Continuant amb la instal·lació finalment s'arriba a la pantalla possiblement més important de la instal·lació: la creació de les particions. Les particions finalment han quedat de la següent manera:
 
 ![Pantalla de particions](../imatges/pantalla_particions_ubuntu.jpg)
 
@@ -85,9 +84,9 @@ Durant la instal·lació d’Ubuntu, s’ha optat per la **creació manual de pa
 #### Particions creades
 
 - **/dev/sda1 → Partició EFI (799 MB, tipus ext4)**
-  - Aquesta partició és necessària quan s’utilitza el sistema d’arrencada **UEFI** que es la que s'ha activat a l'hora de crear la maquina virtual.  
+  - Aquesta partició és necessària quan s’utilitza el sistema d’arrencada **UEFI**, que és la que s'ha activat a l'hora de crear la màquina virtual.  
   - Conté els fitxers essencials perquè l’ordinador pugui iniciar el carregador d’arrencada (GRUB en el cas d’Ubuntu).  
-  - Encara que sembli petita, es suficient i és imprescindible per a l’arrencada del sistema.
+  - Encara que sembli petita, és suficient i imprescindible per a l’arrencada del sistema.
 
 - **/dev/sda2 → Partició arrel “/” (38 GB, ext4)**
   - Aquesta és la partició principal on s’instal·la el sistema operatiu.  
@@ -97,17 +96,17 @@ Durant la instal·lació d’Ubuntu, s’ha optat per la **creació manual de pa
 - **/dev/sda3 → Partició swap (4 GB)**
   - Espai reservat per al **swap**, que actua com a memòria virtual addicional quan la memòria RAM física no és suficient.  
   - També és útil per permetre la funció d’**hibernació** (guardar l’estat de la sessió al disc).  
-  - En aquest cas s’han assignat 4 GB, una mida adequada per a un sistema amb 8 Gb de RAM com el de la maquina virtual.
+  - En aquest cas s’han assignat 4 GB, una mida adequada per a un sistema amb 8 GB de RAM com el de la màquina virtual.
 
 - **Espai lliure (43.098 MB)**
   - Encara hi ha espai disponible al disc dur virtual per crear noves particions si cal, per exemple:
-    - Una partició **/home** separada per a les dades dels usuaris. En aquest cas no s'ha creat aquesta particio per la qual cosa quedara inclosa a la particio arrel.
+    - Una partició **/home** separada per a les dades dels usuaris. En aquest cas no s'ha creat aquesta partició, per la qual cosa quedarà inclosa a la partició arrel.  
     - Una partició addicional per a proves o altres sistemes.  
 
 #### El sistema de particions en Linux
 
 En Linux, a diferència de Windows, no s’utilitzen lletres de unitat (com `C:` o `D:`).  
-Tot el sistema s’organitza sota un únic **arbre de directoris**, que comença a la **arrel “/”**.  
+Tot el sistema s’organitza sota un únic **arbre de directoris**, que comença a l’**arrel “/”**.  
 
 - **/** → Punt de muntatge principal (arrel).  
 - **/boot o EFI** → Fitxers d’arrencada del sistema.  
@@ -128,7 +127,7 @@ En aquest cas s’ha creat un esquema simple però funcional:
 
 Aquesta organització garanteix que Ubuntu s’instal·li correctament i que el sistema pugui arrencar i funcionar amb estabilitat.
 
-Despres de la creació de les particions ja s'inicia la instal·lació del sistema operatiu i es configuren la resta d'opcions de instal·lació del sistema operatiu. Ja gairebe al final de la instal·lació nomes queda la creació de l'usuari aixi com el nom que se li donara al equip.
+Després de la creació de les particions ja s'inicia la instal·lació del sistema operatiu i es configuren la resta d'opcions de la instal·lació. Ja gairebé al final només queda la creació de l'usuari i el nom que se li donarà a l’equip.
 
 ![Imatge de la creació de l'usuari i nom de l'equip](../imatges/Imatge_creacio_usuari.jpg)
 
@@ -138,29 +137,29 @@ Aquesta pantalla estableix tant la informació d’identitat com les credencials
 
 #### Camps configurables
 
-- **El seu nom** Es tracta del nom complet de la persona usuària (en aquest cas, *Jesus*).  
+- **El seu nom**: Es tracta del nom complet de la persona usuària (en aquest cas, *Jesus*).  
   Aquest nom es mostra en l’entorn gràfic i a les pantalles de benvinguda.
 
-- **El nom de l’equip** Identifica l’ordinador dins de la xarxa.  
+- **El nom de l’equip**: Identifica l’ordinador dins de la xarxa.  
   En aquest cas, s’ha assignat *jesus-VirtualBox*, de manera que altres dispositius poden reconèixer aquest equip quan es connecta a una xarxa.
 
-- **Nom d’usuari** És l’identificador que s’utilitza per iniciar sessió i a la terminal.  
+- **Nom d’usuari**: És l’identificador que s’utilitza per iniciar sessió i a la terminal.  
   Sol ser en minúscules i sense espais (per exemple, *jesus*).  
   Aquest usuari tindrà permisos d’administració mitjançant l’ordre `sudo`.
 
-- **Contrasenya** Clau d’accés que protegeix l’usuari.  
+- **Contrasenya**: Clau d’accés que protegeix l’usuari.  
   Ha de ser prou robusta (combinació de lletres, números i símbols) per garantir la seguretat del sistema.  
   També es demana repetir-la per evitar errors de tecleig.
 
 #### Opcions d’inici de sessió
 
-- **Iniciar sessió automàticament** L’usuari accedeix al sistema sense introduir la contrasenya cada vegada que arrenca l’ordinador.  
+- **Iniciar sessió automàticament**: L’usuari accedeix al sistema sense introduir la contrasenya cada vegada que arrenca l'ordinador.  
   Pot ser còmode, però menys segur.
 
-- **Sol·licitar contrasenya per iniciar sessió** El sistema demana sempre la contrasenya en arrencar.  
-  És la opció **més recomanada** per protegir l’equip i les dades.
+- **Sol·licitar contrasenya per iniciar sessió**: El sistema demana sempre la contrasenya en arrencar.  
+  És l'opció **més recomanada** per protegir l'equip i les dades.
 
-- **Utilitzar Active Directory** Permet connectar l’ordinador a un **domini corporatiu de Microsoft Active Directory**.  
+- **Utilitzar Active Directory**: Permet connectar l’ordinador a un **domini corporatiu de Microsoft Active Directory**.  
   Aquesta opció no és necessària en entorns domèstics o d’ús personal, però sí en xarxes d’empresa on els usuaris i permisos es gestionen centralitzadament.
 
 #### Importància d’aquest pas
@@ -172,11 +171,11 @@ Aquest és un dels punts més importants de la instal·lació:
 
 Una configuració correcta aquí garanteix que el sistema estigui protegit i preparat per treballar tant en entorns personals com en xarxes més grans.
 
-Despres d'aixo ja tindriem configurat l'Ubuntu i nomes quedaria la personalització de l'usuari per a que aparegui la pantalla de l'escritori i puguem donar per acabada la instal·lació del sistema operatiu. Despres d'acabar la instal·lació seria necessaria la instal·lacio de les Guest Additions i les actualitzacions corresponents.
+Després d’això ja tindríem configurat l'Ubuntu i només quedaria la personalització de l'usuari perquè aparegui la pantalla de l'escriptori i puguem donar per acabada la instal·lació del sistema operatiu. Després d’acabar la instal·lació seria necessària la instal·lació de les **Guest Additions** i les actualitzacions corresponents.
 
 # Llicenciament
 
-Per tal de poder veure el llicenciament d'Ubuntu es pot lleguir el fitxer [license.md](license.md)
+Per tal de veure el llicenciament d'Ubuntu es pot llegir el fitxer [license.md](license.md)
 
 # Gestors d'arrencada per a instal·lacions DUALS
 # Punts de restauració
