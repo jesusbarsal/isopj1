@@ -98,5 +98,5 @@ El mode **NAT Network** és una combinació entre NAT i xarxa interna.
 ---
 
 En conclusió, l’opció més recomanada per defecte és **NAT**, per simplicitat i seguretat.  
-Si necessites que la màquina virtual sigui visible a la xarxa física, has d’utilitzar **Adaptador pont**.  
-Per a laboratoris aïllats, la millor opció és **Xarxa interna**, i si vols una LAN virtual amb Internet entre diverses màquines, la millor és **NAT Network**.
+Si es necessita que la màquina virtual sigui visible a la xarxa física, s'ha d’utilitzar **Adaptador pont**.  
+Per a laboratoris aïllats, la millor opció és **Xarxa interna**, i si es vol una LAN virtual amb Internet entre diverses màquines, la millor és **NAT Network**.
