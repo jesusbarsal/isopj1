@@ -176,6 +176,7 @@ Després d’això ja tindríem configurat l'Ubuntu i només quedaria la persona
 # Llicenciament
 
 Per tal de veure el llicenciament d'Ubuntu es pot llegir el fitxer [license.md](license.md)
+
 Per tal de veure el llicenciament del GitHub es pot llegir el fitxer [license.md](../license.md)
 
 # Gestors d'arrencada per a instal·lacions DUALS
