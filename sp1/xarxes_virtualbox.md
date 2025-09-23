@@ -1,4 +1,5 @@
-# Modes de xarxa a VirtualBox
+layout: default
+title: "Modes de xarxa a VirtualBox"
 
 VirtualBox ofereix diferents opcions per configurar la xarxa d’una màquina virtual. Cada mode té avantatges i inconvenients segons l’ús que es vulgui donar a la màquina virtual. A continuació es descriuen les principals opcions.
 
