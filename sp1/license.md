@@ -1,6 +1,6 @@
 ---
 layout: default
-# Llicència d'Ubuntu
+title: # Llicència d'Ubuntu
 ---
 
 Ubuntu és una distribució GNU/Linux desenvolupada per **Canonical Ltd.** i una extensa comunitat de voluntaris i desenvolupadors d’arreu del món.  
