@@ -210,7 +210,10 @@ Com ja hem dit, en arribar a aquesta pantalla es polsa sobre la icona Probar Ubu
 
 Tal com es pot apreciar al resultat de la comanda, ens mostra que la partició que tenim instal·lat Ubuntu és a /dev/sda2 i la part de l’arrancada es troba a /dev/sda1. Com que ja se sap on estan les particions, ara cal muntar-les les dues. Per a fer-ho s’utilitzaran les següents comandes.
 
-
+- ```bash
+sudo mount /dev/sda2 /mnt
+sudo mount /dev/sda1 /mnt/boot/efi
+---
 
 
 # Llicenciament
