@@ -261,6 +261,29 @@ sudo nano /etc/default/grub
 
 ![imatge de comprovacio del fitxer de configuració del GRUB](../imatges/maquina_virtual05.jpg)
 
+Dintre del fitxer s’ha de buscar la línia **GRUB_DISABLE_OS_PROBER=false**.
+Tal com es pot apreciar a la imatge es troba a l’última línia, però en aquest cas s’ha hagut d’afegir donat que no hi existia. Un cop afegit es guarden els canvis i és surt del fitxer de configuració del GRUB.
+
+![Imatge amb l'actualització del GRUB](../imatges/maquina_virtual06.jpg)
+
+A continuació cal tornar a generar el GRUB. Per a fer-ho cal posar la comanda sudo update grub. Com es pot veure a la imatge anterior, a posar la comanda aquest realitza els passos corresponents i ja si es mira es pot apreciar com apareix la línia on diu que ha trobat una instal·lació de Windows. Arribats aquí ja només ens queda reiniciar l’equip per a comprovar sí això és així.
+
+![Imatge de comprovació que apareix el menú d'inici del GRUB](../imatges/maquina_virtual07.jpg)
+
+I com es pot comprovar ara en iniciar el sistema operatiu ja ens mostra directament el GRUB amb les opcions d’arrancada entre les que s’aprecien la d’Ubuntu i a la tercera línia ens mostra la línia amb el sistema Windows. Després de provar-ho, s’han pogut iniciar els dos sistemes operatius sense problemes aparents.
+
+# Virtual amb dos sistemes operatius amb arrancada independent
+
+## Configuració de VirtualBox
+
+Per tal de crear l’activitat primer es crearà una màquina virtual amb la següent configuració.
+
+![Imatge amb la configuració de VirtualBox](../imatges/maquina_virtual08.jpg)
+
+Inicialment, a la imatge es pot observar com quedarà la màquina virtual amb els dos discs durs de 50 GB per a la instal·lació dels dos sistemes operatius i la resta de la configuració. Només cal remarcar que per a evitar problemes a l’hora de la instal·lació i que un sistema operatiu afecti l’altre, a continuació es realitzarà l'eliminació d’un dels discs dur per tal d’evitar problemes i errades.
+
+Després un cop instal·lat el sistema operatiu es farà la inversa i instal·lar l’altre sistema operatiu. Un cop els dos sistemes operatius instal·lats llavors ja es tornarà a posar els dos discs durs i després sobre el bios del VirtualBox s'instal·larà un sistema o l’altre.
+
 # Llicenciament
 
 Per tal de veure el llicenciament d'Ubuntu es pot llegir el fitxer [license.md](license.md)
