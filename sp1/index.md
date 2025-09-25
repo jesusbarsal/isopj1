@@ -208,15 +208,58 @@ Com ja hem dit, en arribar a aquesta pantalla es polsa sobre la icona Probar Ubu
 
 ![Imatge amb les diferents particions del disc virtual](../imatges/maquina_virtual04.jpg)
 
-Tal com es pot apreciar al resultat de la comanda, ens mostra que la partició que tenim instal·lat Ubuntu és a /dev/sda2 i la part de l’arrancada es troba a /dev/sda1. Com que ja se sap on estan les particions, ara cal muntar-les les dues. 
+Tal com es pot apreciar al resultat de la comanda, ens mostra que la partició que tenim instal·lat Ubuntu és a /dev/sda2 i la part de l’arrancada es troba a /dev/sda1. Com que ja se sap on estan les particions, ara cal muntar-les les dues. Per a fer-ho s’utilitzaran les següents comandes.
 
-Per a fer-ho s’utilitzaran les següents comandes.
 ```bash
 sudo mount /dev/sda2 /mnt
 sudo mount /dev/sda1 /mnt/boot/efi
 ```
 
+Després de fer al muntatge, cal enganxar els directoris del sistema al chroot, per a fer-ho es posaran les següents comandes.
 
+``` bash
+sudo mount --bind /dev /mnt/dev
+sudo mount --bind /proc /mnt/proc
+sudo mount --bind /sys /mnt/sys
+sudo mount --bind /run /mnt/run
+``` 
+
+Després cal entrar al chroot amb la comanda
+
+``` bash
+sudo chroot /mnt
+```
+
+A continuació caldrà actualitzar el GRUB I els fitxers EFI amb la comanda
+
+``` bash
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ubuntu update-grub
+```
+Després només caldrà sortir del chroot i desmuntar les particions que hem muntat abans amb les comandes.
+
+``` bash
+exit
+sudo umount /mnt/dev
+sudo umount /mnt/proc
+sudo umount /mnt/sys
+sudo umount /mnt/run
+sudo umount /mnt/boot/efi
+sudo umount /mnt
+```
+
+I ja per acabar només queda reiniciar l’equip i si tot ha anat correctament ja hauria de sortir l’arrancada dual. Finalment i després del reinici, s’ha recuperat l’arrancada de l’Ubuntu, però no apareix l’arrancada dual. Per a arreglar-ho, es forçarà que el GRUB faci una actualització perquè mostri la partició de Windows. Per a fer-ho s’utilitzaran les següents comandes.
+
+``` bash
+sudo apt install os-prober	(En aquest cas ja estava instal·lat però per si de cas)
+```
+
+Comprovat que ho tenim, s’ha d’editar el fitxer de configuració del GRUB amb la comanda
+
+``` bash
+sudo nano /etc/default/grub
+```
+
+![imatge de comprovacio del fitxer de configuració del GRUB](../imatges/maquina_virtual05.jpg)
 
 # Llicenciament
 
