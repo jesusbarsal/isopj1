@@ -214,7 +214,8 @@ Per a fer-ho s’utilitzaran les següents comandes.
 ```bash
 sudo mount /dev/sda2 /mnt
 sudo mount /dev/sda1 /mnt/boot/efi
-``
+```
+
 
 
 # Llicenciament
