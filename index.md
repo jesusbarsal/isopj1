@@ -12,5 +12,5 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
 # Contingut del curs
 
 ## Unitat 1. Sprint1:
-### [Instal·lació i configuració inicial](sp1/index.md).
+### [Virtualització i instal·lació del SO Ubuntu](sp1/index.md).
 
