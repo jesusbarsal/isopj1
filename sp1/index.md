@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Sprint1 1: Instal·lació i configuració inicial"
+title: "Sprint1 1: Implantació de sistemes operatius"
 ---
 
-# Virtualització i instal·lació del SO Ubuntu
-## Virtualització amb VirtualBox
+# Màquina virtual dual Ubuntu - Windows
+## Configuració de VirtualBox
 
 Per tal de poder realitzar la instal·lació d'Ubuntu, i com que no podem fer-ho sobre una màquina física, hem d'utilitzar l'aplicació anomenada VirtualBox per tal de poder realitzar la instal·lació del sistema operatiu. L'elecció d'aquesta aplicació i no una altra com VMware és que aquesta és de codi lliure i gratuïta, i per tant no és necessària la compra de cap llicència.
 
@@ -66,7 +66,7 @@ En aquest apartat hi trobem la configuració per als ports USB que disposarà la
 
 Les carpetes compartides permeten que una màquina virtual accedeixi a carpetes o directoris de l’ordinador amfitrió com si fossin unitats locals dins del sistema convidat. Això facilita enormement l’intercanvi de dades sense haver de copiar-les amb memòries USB ni utilitzar xarxa.
 
-## Instal·lació del sistema operatiu
+## Instal·lació del sistema operatiu Ubuntu
 
 Revisades les opcions de la màquina virtual, es comença amb la instal·lació de l'Ubuntu. Per això es polsa sobre el botó d’inicialitzar i comença la instal·lació del sistema operatiu. Dins de les parts de la instal·lació es mencionaran les més importants.  
 En primer lloc apareix la pantalla per a escollir si volem instal·lar-lo o només provar-lo.
@@ -175,6 +175,43 @@ Aquest és un dels punts més importants de la instal·lació:
 Una configuració correcta aquí garanteix que el sistema estigui protegit i preparat per treballar tant en entorns personals com en xarxes més grans.
 
 Després d’això ja tindríem configurat l'Ubuntu i només quedaria la personalització de l'usuari perquè aparegui la pantalla de l'escriptori i puguem donar per acabada la instal·lació del sistema operatiu. Després d’acabar la instal·lació seria necessària la instal·lació de les **Guest Additions** i les actualitzacions corresponents.
+
+## Instal·lacio del sistema operatiu Windows a la màquina virtual
+
+### Introducció
+Acabada la instal·lacio i configuració de l'Ubuntu, a continuacio li toca el torn al Windows. Per tal de poder realitzar la instal·lació del Windows a la mateixa maquina virtual, cal que aquesta inicialment hagui estat feta sobre una configuracio on el disc dur ha d'estar configurat amb format GPT i no amb MBR per a poder instal·lar posteriorment el Windows en aquest cas com que la instal·lació inicial de l'ubuntu ja ha estat realitzat aixi, llavors ja es compatible per a la instal·lacio del windows 10 en aquest cas.
+
+![Imatge de comprovació del sistema d'arxius de la maquina virtual](../imatges/maquina_virtual01.jpg)
+
+Això és el que demostra que la instal·lació de l'Ubuntu inicial ja està instal·lat sobre un disc amb la configuració amb el sistema GPT
+
+### instal·lació del sistema operatiu
+
+Ara ja comença la instal·lació del Windows 10. Per a fer-ho cal anar a la configuració i a l’apartat de l'emmagatzematge afegir l'ISO del Windows 10 perquè en arrancar la màquina virtual ja arranqui directament amb Windows. També s’ha de canviar la targeta gràfica que hi tenim assignat donat que el format que dona VirtualBox per a Linux no és compatible amb Windows i no es podrà veure la imatge al Windows 10, per tant, es realitza el canvi corresponent.
+
+![Imatge del particionat realitzat per a la instal·lació del sistema operatiu](../imatges/maquina_virtual02.jpg)
+
+Un cop iniciada la instal·lació s’arriba a la pantalla de les particions, en aquest cas es polsa sobre la partició que tenim sense utilitzar i es polsa sobre Siguiente per a la instal·lació del Windows. En fer-ho així, el mateix sistema ja crea les particions reglamentàries i continua amb la instal·lació.
+
+Finalitzada la instal·lació del Windows 10 i aquest ja funciona correctament, es procedeix a la recuperació de l’arrancada perquè aquest sigui dual
+
+### Recuperació del GRUB d'Ubuntu
+
+Com és normal, en instal·lar Windows damunt de l’Ubuntu, aquest ha eliminat el GRUB i ara només detecta el Windows. Això es pot revertir únicament restaurant el GRUB, el qual un cop restaurat ja ens hauria de detectar també el Windows i aplicarà un arrancat dual per als dos sistemes operatius. Aquesta recuperació es pot arribar a realitzar pel vist de diverses maneres, però en aquest cas s’utilitzarà la següent que es passarà a aplicar. 
+
+En primer lloc, cal arrancar amb una ISO d’Ubuntu, però en aquest cas no s’utilitzarà 
+la instal·lació del mateix si no la part del **live cd**.
+
+![Imatge on es veu si es tria provar o instal·lar Ubuntu](../imatges/maquina_virtual03.jpg)
+
+Com ja hem dit, en arribar a aquesta pantalla es polsa sobre la icona Probar Ubuntu i iniciem el sistema operatiu en mode Live CD. Un cop ja arrancat, en primer lloc, s’ha de localitzar la partició on està instal·lat Ubuntu, per a saber-ho es posa la comanda sudo fdisk -l perquè ens mostri totes les particions del disc.
+
+![Imatge amb les diferents particions del disc virtual](../imatges/maquina_virtual04.jpg)
+
+Tal com es pot apreciar al resultat de la comanda, ens mostra que la partició que tenim instal·lat Ubuntu és a /dev/sda2 i la part de l’arrancada es troba a /dev/sda1. Com que ja se sap on estan les particions, ara cal muntar-les les dues. Per a fer-ho s’utilitzaran les següents comandes.
+
+
+
 
 # Llicenciament
 
