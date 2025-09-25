@@ -11,7 +11,11 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
 
 # Contingut del curs
 
-## Unitat 1. Sprint1:
-### [Virtualització i instal·lació del SO Ubuntu](sp1/index.md).
-#### [Virtualització amb Virtualbox]
+# Unitat 1. Sprint1:
+# [Implantació de sistemes operatius](sp1/index.md).
+## [Maquina virtual dual Ubuntu - Windows]
+### [Configuració de VirtualBox]
+### [Instal·lació del sistema operatiu Ubuntu]
+### [Instal·lacio del sistema operatiu Windows]
+
 
