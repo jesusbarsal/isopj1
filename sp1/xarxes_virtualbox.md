@@ -87,7 +87,7 @@ El mode **NAT Network** és una combinació entre NAT i xarxa interna.
 
 ---
 
-# Resum comparatiu
+## Resum comparatiu
 
 | Mode             | Connexió a Internet | Accessible des de la LAN física | Comunicació entre màquines virtuals | Ús recomanat |
 |------------------|---------------------|---------------------------------|------------------------------------|--------------|
@@ -97,6 +97,8 @@ El mode **NAT Network** és una combinació entre NAT i xarxa interna.
 | **NAT Network**  | Sí                  | No                              | Sí                                 | Simular LAN amb accés a Internet |
 
 ---
+
+## Resum
 
 En conclusió, l’opció més recomanada per defecte és **NAT**, per simplicitat i seguretat.  
 Si es necessita que la màquina virtual sigui visible a la xarxa física, s'ha d’utilitzar **Adaptador pont**.  
