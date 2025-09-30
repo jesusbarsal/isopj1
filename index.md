@@ -11,10 +11,15 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
 
 # Contingut del curs
 - **Unitat 1. Sprint1**
-   - [Implantació de sistemes operatius](sp1/index.md).
-   - [Maquina virtual dual Ubuntu - Windows]
-   - [Configuració de VirtualBox]
-   - [Instal·lació del sistema operatiu Ubuntu]
-   - [Instal·lacio del sistema operatiu Windows]
+   - [Màquina virtual dual Ubuntu - Windows](sp1/index.md).
+      - [Configuració de Virtualbox]
+      - [Instal·lació del sistema operatiu Ubuntu]
+      - [Instal·lació del sistema operatiu Windows]
+      - [Recuperació del GRUB d'Ubuntu]
+   - [Maquina virtual no dual Ubuntu - Windows]
+      - [Configuració de VirtualBox]
+      - [Particionat del disc dur d'Ubuntu]
+      - [Particionat del disc dur Windows]
+      - [Entrada a la bios per arrancar entre Windows u Ubuntu]
 
 
