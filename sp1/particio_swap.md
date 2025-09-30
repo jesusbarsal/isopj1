@@ -3,10 +3,9 @@ layout: default
 title: "És necessari crear una partició swap a Ubuntu?"
 ---
 
-Avui en dia, en les versions modernes d’Ubuntu (20.04, 22.04, 24.04…), **ja no és necessari crear manualment una partició swap**.  
-El sistema, per defecte, utilitza un **fitxer swap** en lloc d’una partició dedicada, que ofereix la mateixa funcionalitat i és 
-més flexible de gestionar. Per tant, només caldria una partició swap en casos concrets, com ara quan es vol utilitzar la 
-**hibernació** o en entorns molt específics.
+Avui en dia, en les versions modernes d’Ubuntu (des de 17.04 fins a 24.04…), **ja no és necessari crear manualment una partició swap**.  
+El sistema, per defecte, utilitza un **fitxer swap** en lloc d’una partició dedicada, que ofereix la mateixa funcionalitat i és més flexible de gestionar.  
+Per tant, només caldria una partició swap en casos concrets, com ara quan es vol utilitzar la **hibernació** o en entorns molt específics.
 
 ---
 
