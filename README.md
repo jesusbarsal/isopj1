@@ -1,22 +1,29 @@
+---
+layout: default
+title: "Curs d'Implantació de sistemes operatius"
+---
+
 # Curs d'Implantació de sistemes operatius
 
-Aquest repositori contindrà el material que s'anirà generant durant el curs d'implementació de sistemes operatius donat per Mireia Consarnau al curs de 1r d'ASIX a l'Ies de l'Ebre.
+Aquest repositori conté el material generat durant el curs d’implantació de sistemes operatius impartit per **Mireia Consarnau** a 1r d’ASIX a l’**IES de l’Ebre**.
 
 ## Contingut
 
-- a acabar
+- [Índex del curs](index.md)  
+  *(Es detalla el material de cada Sprint i Unitat a la pàgina principal.)*
 
-## Us
+## Ús
 
-Aquest repositori està preparat per a ser publicat a GitHub Pages.  
-Es pot veure la versió web pública a:  
-[https://github.com/jesusbarsal/isopj1.git](https://github.com/jesusbarsal/isopj1.git)
+Aquest repositori està preparat per ser publicat amb **GitHub Pages**.  
+La versió web pública es pot veure aquí:  
+👉 [https://jesusbarsal.github.io/isopj1/](https://jesusbarsal.github.io/isopj1/)
 
-## Llicencia
+## Llicència
 
-El contingut està baix llicència [Creative Commons BY-NC-SA 4.0 Internacional](LICENSE.md).
+El contingut està sota llicència [Creative Commons BY-NC-SA 4.0 Internacional](LICENSE.md).
 
 ---
 
 © 2025 Jesús Barceló
+
 
