@@ -266,7 +266,7 @@ Tal com es pot apreciar a la imatge es troba a l’última línia, però en aque
 
 ![Imatge amb l'actualització del GRUB](../imatges/maquina_virtual06.jpg)
 
-A continuació cal tornar a generar el GRUB. Per a fer-ho cal posar la comanda sudo update grub. Com es pot veure a la imatge anterior, a posar la comanda aquest realitza els passos corresponents i ja si es mira es pot apreciar com apareix la línia on diu que ha trobat una instal·lació de Windows. Arribats aquí ja només ens queda reiniciar l’equip per a comprovar sí això és així.
+A continuació cal tornar a generar el GRUB. Per a fer-ho cal posar la comanda **sudo update grub**. Com es pot veure a la imatge anterior, a posar la comanda aquest realitza els passos corresponents i ja si es mira es pot apreciar com apareix la línia on diu que ha trobat una instal·lació de Windows. Arribats aquí ja només ens queda reiniciar l’equip per a comprovar sí això és així.
 
 ![Imatge de comprovació que apareix el menú d'inici del GRUB](../imatges/maquina_virtual07.jpg)
 
@@ -282,7 +282,41 @@ Per tal de crear l’activitat primer es crearà una màquina virtual amb la seg
 
 Inicialment, a la imatge es pot observar com quedarà la màquina virtual amb els dos discs durs de 50 GB per a la instal·lació dels dos sistemes operatius i la resta de la configuració. Només cal remarcar que per a evitar problemes a l’hora de la instal·lació i que un sistema operatiu afecti l’altre, a continuació es realitzarà l'eliminació d’un dels discs dur per tal d’evitar problemes i errades.
 
-Després un cop instal·lat el sistema operatiu es farà la inversa i instal·lar l’altre sistema operatiu. Un cop els dos sistemes operatius instal·lats llavors ja es tornarà a posar els dos discs durs i després sobre el bios del VirtualBox s'instal·larà un sistema o l’altre.
+Després un cop instal·lat el sistema operatiu es farà la inversa, es desconectara el disc dur per a que detecti l'altre i instal·lar l’altre sistema operatiu. Un cop els dos sistemes operatius instal·lats llavors ja es tornarà a posar els dos discs durs i després sobre el bios del VirtualBox s'inicialitzarà un sistema o l’altre.
+
+## Particionat del disc de l’Ubuntu
+
+A causa del fet que la instal·lació que s’ha realitzat a les màquines virtuals no hi havia uns requisits concrets com en la màquina anterior, s’ha fet una instal·lació per defecte i sense realitzar cap variació, per la qual cosa doncs no s’ha pogut realitzar una captura de pantalla en el moment de la realització de les particions corresponents.
+
+Per aquesta raó i després de la finalització d'aquesta, he executat la comanda sudo parted -l per a fer una captura de pantalla i veure com ha quedat les particions amb totes les dades relacionades amb el particionat i sistema de fitxers de la màquina virtual.
+
+![Imatge amb el particionat al disc dur d'Ubuntu](../imatges/maquina_virtual11.jpg)
+
+A la imatge es poden apreciar les particions generades així com que la taula de particions està generada amb GPT. De la resta de la instal·lació no s’han agafat imatges donat que com ja s’ha dit abans la instal·lació ha estat tota per defecte.
+
+## Particionat del disc del Windows 10
+
+En el cas de la instal·lació del Windows 10 sobre la màquina virtual, aquest s’ha realitzat igual que amb el disc d’Ubuntu, és a dir, tot per defecte. En fer-ho així, la instal·lació quan arriba a l’apartat de les particions, aquesta no mostra com es generen, ja que aquest fa un particionat adaptant-se a les capacitats del disc dur, per la qual cosa, no s’ha pogut realitzar una captura de pantalla en el moment de la realització.
+
+Per aquesta raó, i ja amb el sistema operatiu instal·lat, es procedeix a la realització d’una captura de pantalla per tal de mostrar com ha quedat el particionat.
+
+![Imatge amb les particions existents al disc dur amb Windows 10](../imatges/maquina_virtual12.jpg)
+
+En aquest cas amb Windows s’ha utilitzat la comanda diskpart, ja que ens permet accedir a totes les dades, inclús es pot apreciar com aquest detecta els dos discs durs de la màquina virtual, i aquest ens mostra com les dues particions estan en el format GPT així com les diferents particions que ha generat el mateix Windows 10 durant la instal·lació.
+
+## Entrada a la bios per a canviar entre sistemes operatius
+
+Com ja se sap, aquesta màquina hi ha els dos sistemes operatius, però no estan dualitzats, per aquesta raó no hi ha manera de què en inicialitzar puguem triar entre un sistema operatiu o l’altre. Llavors això amb una màquina física es podria fer de la mateixa manera que es fa aquí a la màquina virtual.
+
+En aquest cas, Virtualbox també ens dona l’opció d’accedir al bios i des d’allí poder escollir si es vol arrancar amb Ubuntu o si es vol arrancar amb Windows. Per a accedir al bios de la màquina virtual cal polsar la tecla F2 del teclat. Això sí, s’ha de fer mooolt ràpid i abans i tot de què aparegui a la pantalla o si no, no hi haurà forma de poder-hi entrar.
+
+![Imatge amb la pantalla inicial del Bios de la Màquina virtual](../imatges/maquina_virtual09.jpg)
+
+En entrar al bios la primera pantalla que ens apareix és la imatge anterior, la configuració del bios no és ni de bon tros com podria ser la d’una bios d’un equip físic, però sí que dona les opcions necessàries per al que necessitem en aquest cas. Per a modificar l’arrancada es polsarà sobre l’opció que hi ha seleccionada anomenada Boot Manager.
+
+![Imatge de la pantalla on es pot assignar quin disc dur sira el que arrancarà](../imatges/maquina_virtual10.jpg)
+
+En accedir a la pantalla ja ens mostra totes les opcions que hi ha disponibles per a realitzar l’arrancada. En el cas d’aquesta màquina virtual ens mourem entre la quarta i quinta línia que són les dues instal·lacions que hi ha creades. A la quarta fila es troba la que fa que arranqui Windows 10 i la quinta fila és la que s’encarrega que arranqui l’Ubuntu. Inicialment, s’hauria de poder modificar l’arrancada per defecte, però per ara no s’aplicarà aquí.
 
 # Llicenciament
 
