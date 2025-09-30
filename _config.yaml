@@ -8,3 +8,11 @@ plugins:
 
 include:
   - assets/css/custom.css
+
+# Configuració de Markdown perquè es mostrin taules i sintaxi GFM
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
