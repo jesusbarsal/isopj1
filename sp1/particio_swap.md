@@ -39,6 +39,7 @@ Per veure si el teu Ubuntu està fent servir *swapfile* o partició swap:
 
 ```bash
 swapon --show
+``` 
 
 ### Resum
 - **Avui en dia no cal crear partició swap**: Ubuntu ja gestiona automàticament la memòria virtual amb un **fitxer swap**.  
