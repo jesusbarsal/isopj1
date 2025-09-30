@@ -1,6 +1,11 @@
-# Llicencia Creative Commons Atribución Reconocimiento - No Comercial - Compartir Igual 4.0 Internacional (CC BY-NC-SA 4.0)
+---
+layout: default
+title: "Llicència Creative Commons BY-NC-SA 4.0"
+---
 
-Aquest treball està llicenciat baix la [Licencia Creative Commons Atribución/Reconocimiento - No Comercial - Compartir Igual 4.0 Internacional (CC BY-NC-SA 4.0)]([https://creativecommons.org/licenses/by-nc-sa/3.0/es/](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es?utm_source=chatgpt.com)).
+# Llicència Creative Commons BY-NC-SA 4.0
+
+Aquest treball està llicenciat baix la [Llicència Creative Commons BY-NC-SA 4.0 Internacional](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es).
 
 ---
 
@@ -54,5 +59,5 @@ Aquesta és una traducció i resum informatiu. El text jurídicament vinculant �
 
 ---
 
-
 © 2025 Jesús Barceló
+
