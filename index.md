@@ -21,5 +21,3 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
       - [Particionat del disc dur d'Ubuntu](sp1/index.md#particionat-del-disc-de-lubuntu)
       - [Particionat del disc dur Windows](sp1/index.md#particionat-del-disc-del-windows-10)
       - [Entrada a la bios per arrancar entre Windows u Ubuntu](sp1/index.md#entrada-a-la-bios-per-a-canviar-entre-sistemes-operatius)
-
-https://github.com/jesusbarsal/isopj1/blob/main/sp1/index.md#installacio-del-sistema-operatiu-windows-a-la-m%C3%A0quina-virtual
