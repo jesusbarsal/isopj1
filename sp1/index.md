@@ -407,6 +407,48 @@ Finalment i posat el filtre a crear, el sistema ja ens diu que tornarà a crear 
 
 # Configuració de la xarxa
 
+Per tal de realitzar la configuració de la xarxa, en primer lloc, es posarà la comanda ip a per tal de saber la IP que hi ha a la màquina virtual. Com que la targeta de xarxa està en pont, la IP que ens apareixerà és la que ens ha donat el DHCP de l’aula.
+
+![Imatge de comprovació de la IP de l'equip](../imatges/maquina_virtual35.jpg)
+
+Tal com es pot apreciar, la IP és la 192.168.203.220/24. Després de saber la IP a continuació es posarà a la part gràfica de l’Ubuntu a la configuració de la xarxa per a posar la mateixa IP, però en aquest cas en configuració manual.
+
+![Imatge comprovació IP des de l'entorn gràfic](../imatges/maquina_virtual36.jpg)
+
+Posada la configuració es guarden els canvis i a continuació es comprovarà si funciona internet.
+
+![imatge amb IP a i pings](../imatges/maquina_virtual37.jpg)
+
+Després de comprovar amb la comanda ip a per a comprovar com ha quedat la configuració, per a acabar de comprovar que la configuració està correcta es realitza un ping a la IP 8.8.8.8, com es pot comprovar el ping és correcte, per la qual cosa la configuració ha quedat establerta de forma correcta.
+
+Després de fer el canvi per la part gràfica, ara es realitzarà el mateix, però per la part de línia de comandes a la configuració per a quan no hi ha entorn gràfic.
+
+![Imatge fitxers de la carpeta Netplan](../imatges/maquina_virtual38.jpg)
+
+Per a fer la configuració de la xarxa des del terminal cal utilitzar Netplan. Per a fer-ho cal editar els fitxers de configuració situats a la carpeta /etc/netplan/
+
+![Imatge fitxers de la carpeta Netplan](../imatges/maquina_virtual39.jpg)
+
+Un cop dintre de la carpeta es pot observar que el fitxer a modificar és el que s’anomena 01-network-manager-all.yaml. Per a modificar-lo s’aplica la comanda sudo nano 01-network-manager-all.yaml
+
+La configuració per defecte d’aquest fitxer seria una com la següent:
+
+```bash
+network:
+  version: 2
+  ethernets:
+    enp0s3:
+      dhcp4: true
+```
+
+Finalment, el fitxer ha quedat de la següent manera.
+
+![Imatge de com ha quedat el fitxer de configuracio](../imatges/maquina_virtual40.jpg)
+
+Després d’aplicar la configuració i comprovar que no hi han errades, amb la comanda sudo netplan apply, la configuració ja queda fixada. Si després es va a l’apartat gràfic de la configuració de xarxa, aquesta ha quedat de la següent manera.
+
+
+
 
 
 # Gestors d'arrencada per a instal·lacions DUALS
