@@ -318,12 +318,6 @@ En entrar al bios la primera pantalla que ens apareix és la imatge anterior, la
 
 En accedir a la pantalla ja ens mostra totes les opcions que hi ha disponibles per a realitzar l’arrancada. En el cas d’aquesta màquina virtual ens mourem entre la quarta i quinta línia que són les dues instal·lacions que hi ha creades. A la quarta fila es troba la que fa que arranqui Windows 10 i la quinta fila és la que s’encarrega que arranqui l’Ubuntu. Inicialment, s’hauria de poder modificar l’arrancada per defecte, però per ara no s’aplicarà aquí.
 
-# Llicenciament
-
-Per tal de veure el llicenciament d'Ubuntu es pot llegir el fitxer [license.md](license.md)
-
-Per tal de veure el llicenciament del GitHub es pot llegir el fitxer [license.md](../LICENSE.md)
-
 # Punts de restauració
 
 ## Creació i assignació del disc dur
@@ -490,3 +484,9 @@ En aplicar la comanda, es pot apreciar com s’ha modificat la versió per defec
 ![Imatge amb la comprovació de l'instal·lació](../imatges/maquina_virtual44.jpg)
 
 Després d’acabar la instal·lació si es torna a posar la comanda sudo apt-cache policy audacity, ja ens mostra que ara sí que està instal·lada l’aplicació i que la versió és la 3.73 i no la 3.4.2 que seria la que s'hagués instal·lat per defecte.
+
+# Llicenciament
+
+Per tal de veure el llicenciament d'Ubuntu es pot llegir el fitxer [license.md](license.md)
+
+Per tal de veure el llicenciament del GitHub es pot llegir el fitxer [license.md](../LICENSE.md)
