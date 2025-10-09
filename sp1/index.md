@@ -457,5 +457,30 @@ Després de fer les comprovacions, es torna a deixar la configuració per defect
 
 # Comandes generals i instal·lacions
 
+Fins ara quan s’ha instal·lat una aplicació s’ha realitzat basant-nos en els paquets que hi ha al repositori d’Ubuntu, però aquest repositori, no sempre té les últimes versions o la versió necessària. Llavors si el que es vol és instal·lar una versió que no sigui la que correspon i poder triar la versió que un vulgui, per a fer això possible és quan cal aplicar el Pinning Packet
 
+Això és un mecanisme del sistema de paquets APT que permet forçar o triar determinades versions de paquets provinents de repositoris diferents o de versions concretes.
 
+Per tal d'instal·lar una aplicació amb aquest sistema cal seguir els següents passos. En primer lloc, cal mirar les versions de l’aplicació que hi ha al sistema disponible.
+
+La comanda a aplicar seria: apt-cache policy nom_aplicacio.
+
+Com a exemple es podria posar l’aplicació Audacity que és un reproductor de vídeo. Per tant, en primer lloc, es faria la comprovació amb la comanda apt-cache policy audacity
+
+![Imatge que mostra si l'aplicació està instal·lada al sistema](..imatges/maquina_virtual42.jpg)
+
+En aquest cas, el sistema ens diu que l’aplicació no es troba dintre del sistema instal·lat, i ens mostra que hi ha dues versions disponibles. També ens mostra que per defecte si es posés sudo apt install audacity s'instal·laria la versió 3.4.2, ja que el número 500 i el 100 com es pot observar, són els paràmetres que ens indiquen la prioritat a l’hora de fer la instal·lació.
+
+Com que el 500 és el número més alt, aquest seria el que per defecte instal·laria APT. Una altra informació important que ens mostra és de quin repositori s'instal·laria cada aplicació.
+
+En aquest cas el que es realitzarà és la instal·lació que és més actualitzada, però que com pel que fa a instal·lació és la segona opció hem de forçar que sigui aquesta la que s’instal·larà.
+
+Per tal de fer-ho així, caldrà posar la següent comanda: **sudo apt install audacity/noble-backports**
+
+![Imatge amb la instal·lació d'audacity](../imatges/maquina_virtual43.jpg)
+
+En aplicar la comanda, es pot apreciar com s’ha modificat la versió per defecte que teníem predeterminada, i ara apt ja ens mostra que s'instal·larà la versió 3.7.3 com se li ha dit, ens mostra els paquets que instal·larà i a continuació ja se li diu que si perquè es faci la instal·lació.
+
+![Imatge amb la comprovació de l'instal·lació](..imatges/maquina_virtual44.jpg)
+
+Després d’acabar la instal·lació si es torna a posar la comanda sudo apt-cache policy audacity, ja ens mostra que ara sí que està instal·lada l’aplicació i que la versió és la 3.73 i no la 3.4.2 que seria la que s'hagués instal·lat per defecte.
