@@ -359,7 +359,56 @@ Després de particionar el disc es procedeix al formatatge. Per a fer-ho es posa
 
 ![Imatge del formateig del disc dur](../imatges/maquina_virtual24.jpg)
 
-# Gestors d'arrencada per a instal·lacions DUALS
+Posant la comanda sudo mkfs.ext4 /dev/sdc1, que és la partició que s’ha creat al pas anterior, aquesta ha quedat formatada en el format ext4 de Linux i ja està a punt per a ser utilitzada.
+
+Un cop ja hi ha el segon disc dur a punt, a continuació cal instal·lar el següent programa.
+
+![Imatge instal·lació Timeshift](../imatges/maquina_virtual25.jpg)
+
+Per a realitzar instantànies, es procedeix a la instal·lació de l’aplicació Timeshift. Aquesta s’ha realitzat mitjançant la comanda sudo apt install timeshift com es pot apreciar a la imatge anterior.
+
+El pròxim pas sirà la creació d’un fitxer
+
+![Creació del fitxer per a comprovació instantània](../imatges/maquina_virtual26.jpg)
+
+Dintre de la carpeta Descargas s’ha creat el fitxer arxiu_a_borrar. Aquest fitxer, després de fer la instantània s’esborrarà i amb la posterior restauració hauria de tornar a aparèixer.  Un cop dintre de l’aplicació polsarem sobre el botó d’assistent per tal de crear una configuració per a la creació de la instantània.
+
+![Imatge assistent creació instantània](../imatges/maquina_virtual27.jpg)
+
+En posar en funcionament l’assistent, en primer lloc, demana el tipus d'instantània, en aquest cas s’ha de posar RSYNC, ja que amb aquest permet copiar fitxers que no són de sistema.
+
+![Imatge assistent creació instantània](../imatges/maquina_virtual28.jpg)
+
+El següent pas és on es vol guardar els fitxers que es generaran les instantànies.
+
+![Imatge assistent creació instantània](../imatges/maquina_virtual29.jpg)
+
+El següent pas ja és seleccionar el tipus d'instantània, en aquest cas se li dirà que es faci en Arrancar el sistema operatiu i en un parell de còpies ja és suficient.
+
+![Imatge assistent creació instantània](../imatges/maquina_virtual30.jpg)
+
+I finalment ja es diu si es volen agafar les carpetes personals de l’usuari. Finalment, ja i després d’una pantalla on informa de diverses coses relacionades en les còpies ja queda guardada la instantània i es reinicia l’equip perquè aquesta es posi en funcionament.
+
+![Imatge visualització de les instantanies realitzades](../imatges/maquina_virtual31.jpg)
+
+S’ha generat la instantània correctament, per la qual cosa s’esborra l’arxiu creat per a comprovar que la còpia s’ha realitzat correctament.
+
+![Imatge comprovacio que l'arxiu esta esborrat](../imatges/maquina_virtual32.jpg)
+
+Esborrat el fitxer, es procedeix a la restauració de la instantània realitzada.
+
+![Imatge restauració instantània](../imatges/maquina_virtual33.jpg)
+
+L’aplicació mostra el que modificarà, es polsa sobre Siguiente per a continuar.
+
+![Imatge restauració instantània](../imatges/maquina_virtual34.jpg)
+
+Finalment i posat el filtre a crear, el sistema ja ens diu que tornarà a crear aquests dos fitxer que pel vist detecta que no hi són, per la qual cosa els restaurarà. I finalment després de fer la comprovació efectivament el fitxer que s’ha esborrat torna a estar al seu lloc, per la qual cosa la instantània ha funcionat correctament.
 
 # Configuració de la xarxa
+
+
+
+# Gestors d'arrencada per a instal·lacions DUALS
+
 # Comandes generals i instal·lacions
