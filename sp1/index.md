@@ -326,13 +326,17 @@ Per tal de veure el llicenciament del GitHub es pot llegir el fitxer [license.md
 
 # Punts de restauració
 
+## Creació i assignació del disc dur
+
 Per tal de poder realitzar aquesta tasca, en primer lloc, s’haura de crear un disc dur per a afegir a la màquina virtual donat que la copia no es possible ni recomanable fer-ho des de la mateixa unitat.
 
-![Iimatge creació disc dur](../imatges/maquina_virtual20.jpg)
+![Imatge creació disc dur](../imatges/maquina_virtual20.jpg)
 
 Després de crear el disc dur (virtual), caldrà afegir-lo a la màquina virtual perquè aquest el detecti.
 
 ![Imatge inserció disc dur a la màquina virtual](../imatges/maquina_virtual21.jpg)
+
+## Particionat i formateig del disc dur
 
 Després d’afegir el disc dur a la màquina virtual, només queda iniciar el sistema per tal d’afegir aquest disc dur per a poder-lo utilitzar després a la tasca que hem de realitzar. 
 
@@ -360,6 +364,8 @@ Després de particionar el disc es procedeix al formatatge. Per a fer-ho es posa
 ![Imatge del formateig del disc dur](../imatges/maquina_virtual24.jpg)
 
 Posant la comanda sudo mkfs.ext4 /dev/sdc1, que és la partició que s’ha creat al pas anterior, aquesta ha quedat formatada en el format ext4 de Linux i ja està a punt per a ser utilitzada.
+
+## Instal·lació Timeshift i creació d'instantànies
 
 Un cop ja hi ha el segon disc dur a punt, a continuació cal instal·lar el següent programa.
 
