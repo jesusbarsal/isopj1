@@ -27,6 +27,7 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
        - [Instal·lació Timeshift i creació d'instantànies](sp1/index.md#installaci%C3%B3-timeshift-i-creaci%C3%B3-dinstant%C3%A0nies)
     - [Configuració de la xarxa](sp1/index.md#configuraci%C3%B3-de-la-xarxa)
     - [Comandes generals i instal·lacións](sp1/index.md#comandes-generals-i-installacions)
+    - [Video funcionament Pinning Packet](sp1/index.md#video-funcionament-pinning-packet)
 
 
 
