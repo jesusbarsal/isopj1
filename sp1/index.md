@@ -447,10 +447,15 @@ Finalment, el fitxer ha quedat de la següent manera.
 
 Després d’aplicar la configuració i comprovar que no hi han errades, amb la comanda sudo netplan apply, la configuració ja queda fixada. Si després es va a l’apartat gràfic de la configuració de xarxa, aquesta ha quedat de la següent manera.
 
+![Imatge de com es veu a l'entorn grafic els canvis aplicats](../imatges/maquina_virtual41.jpg)
 
+En aquesta configuració, el fitxer de Netplan defineix el renderer com a NetworkManager, de manera que la gestió de la xarxa passa al servei gràfic de NetworkManager.
 
+Això provoca que, tot i indicar una IP estàtica al fitxer YAML, l’entorn gràfic mostri la interfície com a automàtica (DHCP). Això és degut al fet que NetworkManager té prioritat sobre la configuració de Netplan.
 
-
-# Gestors d'arrencada per a instal·lacions DUALS
+Després de fer les comprovacions, es torna a deixar la configuració per defecte al fitxer netplan per a poder tornar a fer funcionar la xarxa amb DHCP.
 
 # Comandes generals i instal·lacions
+
+
+
