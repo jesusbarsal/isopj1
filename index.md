@@ -21,5 +21,12 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
       - [Particionat del disc dur d'Ubuntu](sp1/index.md#particionat-del-disc-de-lubuntu)
       - [Particionat del disc dur Windows](sp1/index.md#particionat-del-disc-del-windows-10)
       - [Entrada a la bios per arrancar entre Windows u Ubuntu](sp1/index.md#entrada-a-la-bios-per-a-canviar-entre-sistemes-operatius)
-   - [Punts de restauració](sp1/#entrada-a-la-bios-per-a-canviar-entre-sistemes-operatius)
-   
+   - [Punts de restauració](sp1/index.md#punts-de-restauraci%C3%B3)
+       - [Creació i assignació del disc dur](sp1/index.md#creaci%C3%B3-i-assignaci%C3%B3-del-disc-dur)
+       - [Particionat i formateig del disc dur](sp1/index.md#particionat-i-formateig-del-disc-dur)
+       - [Instal·lació Timeshift i creació d'instantànies](sp1/index.md#installaci%C3%B3-timeshift-i-creaci%C3%B3-dinstant%C3%A0nies)
+    - [Configuració de la xarxa](sp1/index.md#configuraci%C3%B3-de-la-xarxa)
+    - [Comandes generals i instal·lacións](sp1/index.md#comandes-generals-i-installacions)
+
+
+
