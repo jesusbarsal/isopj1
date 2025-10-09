@@ -467,7 +467,7 @@ La comanda a aplicar seria: apt-cache policy nom_aplicacio.
 
 Com a exemple es podria posar l’aplicació Audacity que és un reproductor de vídeo. Per tant, en primer lloc, es faria la comprovació amb la comanda apt-cache policy audacity
 
-![Imatge que mostra si l'aplicació està instal·lada al sistema](..imatges/maquina_virtual42.jpg)
+![Imatge que mostra si l'aplicació està instal·lada al sistema](../imatges/maquina_virtual42.jpg)
 
 En aquest cas, el sistema ens diu que l’aplicació no es troba dintre del sistema instal·lat, i ens mostra que hi ha dues versions disponibles. També ens mostra que per defecte si es posés sudo apt install audacity s'instal·laria la versió 3.4.2, ja que el número 500 i el 100 com es pot observar, són els paràmetres que ens indiquen la prioritat a l’hora de fer la instal·lació.
 
@@ -481,6 +481,6 @@ Per tal de fer-ho així, caldrà posar la següent comanda: **sudo apt install a
 
 En aplicar la comanda, es pot apreciar com s’ha modificat la versió per defecte que teníem predeterminada, i ara apt ja ens mostra que s'instal·larà la versió 3.7.3 com se li ha dit, ens mostra els paquets que instal·larà i a continuació ja se li diu que si perquè es faci la instal·lació.
 
-![Imatge amb la comprovació de l'instal·lació](..imatges/maquina_virtual44.jpg)
+![Imatge amb la comprovació de l'instal·lació](../imatges/maquina_virtual44.jpg)
 
 Després d’acabar la instal·lació si es torna a posar la comanda sudo apt-cache policy audacity, ja ens mostra que ara sí que està instal·lada l’aplicació i que la versió és la 3.73 i no la 3.4.2 que seria la que s'hagués instal·lat per defecte.
