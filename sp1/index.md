@@ -324,7 +324,42 @@ Per tal de veure el llicenciament d'Ubuntu es pot llegir el fitxer [license.md](
 
 Per tal de veure el llicenciament del GitHub es pot llegir el fitxer [license.md](../LICENSE.md)
 
-# Gestors d'arrencada per a instal·lacions DUALS
 # Punts de restauració
+
+Per tal de poder realitzar aquesta tasca, en primer lloc, s’haura de crear un disc dur per a afegir a la màquina virtual donat que la copia no es possible ni recomanable fer-ho des de la mateixa unitat.
+
+![Iimatge creació disc dur](../imatges/maquina_virtual20.jpg)
+
+Després de crear el disc dur (virtual), caldrà afegir-lo a la màquina virtual perquè aquest el detecti.
+
+![Imatge inserció disc dur a la màquina virtual](../imatges/maquina_virtual21.jpg)
+
+Després d’afegir el disc dur a la màquina virtual, només queda iniciar el sistema per tal d’afegir aquest disc dur per a poder-lo utilitzar després a la tasca que hem de realitzar. 
+
+![Imatge detecció unitats de disc dur detectades](../imatges/maquina_virtual22.jpg)
+
+Un cop ja iniciat entrem a la consola i, en primer lloc, es posa la comanda sudo fdisk -l per a veure on ha quedat el disc dur que acabem d’afegir. Al resultat de la comanda es veu com el disc afegit aquesta localitza a /dev/sdc.
+
+A continuació el següent ja és particionar el disc i formatar-lo amb la comanda fdisk.
+
+![Imatge del particionat del disc dur](../imatges/maquina_virtual23.jpg)
+
+Les comandes utilitzades han estat les següents.
+``` bash
+sudo fdisk /dev/sdc
+	n (nova partició)
+	p (partició primària)
+	1 (predeterminat)
+	Primer sector (predeterminat)
+	Last sector (predeterminat)
+	w (guarda els canvis i surt de fdisk)
+```
+
+Després de particionar el disc es procedeix al formatatge. Per a fer-ho es posaran la següent comanda.
+
+![Imatge del formateig del disc dur](../imatges/maquina_virtual24.jpg)
+
+# Gestors d'arrencada per a instal·lacions DUALS
+
 # Configuració de la xarxa
 # Comandes generals i instal·lacions
