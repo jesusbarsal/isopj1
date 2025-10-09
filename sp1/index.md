@@ -485,6 +485,18 @@ En aplicar la comanda, es pot apreciar com s’ha modificat la versió per defec
 
 Després d’acabar la instal·lació si es torna a posar la comanda sudo apt-cache policy audacity, ja ens mostra que ara sí que està instal·lada l’aplicació i que la versió és la 3.73 i no la 3.4.2 que seria la que s'hagués instal·lat per defecte.
 
+## Video funcionament Pinning Packet
+
+A continuació pots veure el vídeo explicatiu sobre el funcionament del **Pinning Packet**:
+
+<iframe width="100%" height="400"
+  src="https://www.youtube.com/embed/clrm-A0Dato"
+  title="Vídeo sobre el funcionament de Pinning Packet"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+
 # Llicenciament
 
 Per tal de veure el llicenciament d'Ubuntu es pot llegir el fitxer [license.md](license.md)
