@@ -473,7 +473,7 @@ En aquest cas, el sistema ens diu que l’aplicació no es troba dintre del sist
 
 Com que el 500 és el número més alt, aquest seria el que per defecte instal·laria APT. Una altra informació important que ens mostra és de quin repositori s'instal·laria cada aplicació.
 
-## Instal·lació manualment una versió concreta
+## Instal·lació d'aplicació manualment d'una versió concreta
 
 En aquest cas el que es realitzarà és la instal·lació que és més actualitzada, però que com pel que fa a instal·lació és la segona opció hem de forçar que sigui aquesta la que s’instal·larà. Cal tenir en compte que d'aquesta manera només s'instal·la una vegada, si més endavant s'actualitza, es pot tornar a instal·lar la del repositori principal si té una prioritat superior.
 
@@ -497,7 +497,7 @@ A continuació pots veure el vídeo explicatiu sobre el funcionament de la **Ins
   allowfullscreen>
 </iframe>
 
-## Instal·lació aplicació prioritzant un repositori concret (pinned version)
+## Instal·lació aplicació prioritzant una versió i/o repositori concret (pinned version)
 
 Per a poder veure el funcionament del **Pinned version**, ens centrarem en l’aplicació Audacity, ja que és una aplicació que en posar la comanda ens dona l’opció de poder instal·lar dues versions per defecte. Inicialment, si es posa la comanda sudo apt-cache policy audacity, el resultat és el que apareix a la imatge següent.
 
