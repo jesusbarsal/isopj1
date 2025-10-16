@@ -465,15 +465,17 @@ Per tal d'instal·lar una aplicació amb aquest sistema cal seguir els següents
 
 La comanda a aplicar seria: apt-cache policy nom_aplicacio.
 
-Com a exemple es podria posar l’aplicació Audacity que és un reproductor de vídeo. Per tant, en primer lloc, es faria la comprovació amb la comanda apt-cache policy audacity
+Com a exemple es podria posar l’aplicació Audacity que és una aplicació per a treballar amb audio. Per tant, en primer lloc, es faria la comprovació amb la comanda apt-cache policy audacity
 
-![Imatge que mostra si l'aplicació està instal·lada al sistema](../imatges/maquina_virtual42.jpg)
+![Imatge que mostra si l'aplicació està instal·lada o no al sistema](../imatges/maquina_virtual42.jpg)
 
 En aquest cas, el sistema ens diu que l’aplicació no es troba dintre del sistema instal·lat, i ens mostra que hi ha dues versions disponibles. També ens mostra que per defecte si es posés sudo apt install audacity s'instal·laria la versió 3.4.2, ja que el número 500 i el 100 com es pot observar, són els paràmetres que ens indiquen la prioritat a l’hora de fer la instal·lació.
 
 Com que el 500 és el número més alt, aquest seria el que per defecte instal·laria APT. Una altra informació important que ens mostra és de quin repositori s'instal·laria cada aplicació.
 
-En aquest cas el que es realitzarà és la instal·lació que és més actualitzada, però que com pel que fa a instal·lació és la segona opció hem de forçar que sigui aquesta la que s’instal·larà.
+## Instal·lació manualment una versió concreta
+
+En aquest cas el que es realitzarà és la instal·lació que és més actualitzada, però que com pel que fa a instal·lació és la segona opció hem de forçar que sigui aquesta la que s’instal·larà. Cal tenir en compte que d'aquesta manera només s'instal·la una vegada, si més endavant s'actualitza, es pot tornar a instal·lar la del repositori principal si té una prioritat superior.
 
 Per tal de fer-ho així, caldrà posar la següent comanda: **sudo apt install audacity/noble-backports**
 
@@ -485,9 +487,7 @@ En aplicar la comanda, es pot apreciar com s’ha modificat la versió per defec
 
 Després d’acabar la instal·lació si es torna a posar la comanda sudo apt-cache policy audacity, ja ens mostra que ara sí que està instal·lada l’aplicació i que la versió és la 3.73 i no la 3.4.2 que seria la que s'hagués instal·lat per defecte.
 
-## Video funcionament Pinning Packet
-
-A continuació pots veure el vídeo explicatiu sobre el funcionament del **Pinning Packet**:
+A continuació pots veure el vídeo explicatiu sobre el funcionament de la **Instal·lació manual**:
 
 <iframe width="100%" height="400"
   src="https://www.youtube.com/embed/clrm-A0Dato"
@@ -496,6 +496,36 @@ A continuació pots veure el vídeo explicatiu sobre el funcionament del **Pinni
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen>
 </iframe>
+
+## Instal·lació aplicació prioritzant un repositori concret (pinned version)
+
+Per a poder veure el funcionament del **Pinned version**, ens centrarem en l’aplicació Audacity, ja que és una aplicació que en posar la comanda ens dona l’opció de poder instal·lar dues versions per defecte. Inicialment, si es posa la comanda sudo apt-cache policy audacity, el resultat és el que apareix a la imatge següent.
+
+![Imatge comprovació si esta instal·lat audacity](../imatges/maquina_virtual48.jpg)
+
+Quant es vol instal·lar una aplicació amb una priorització de versió o repositori, s’utilitza el sistema d'apt pinning. Perquè això sigui així, cal realitzar els següents canvis amb les següents comandes.
+
+cd /etc/apt/preferences.d/
+
+Es crearà el següent fitxer.
+
+sudo nano /etc/apt/preferences.d/audacity
+
+![Imatge contingut fitxer audacity](../imatges/maquina_virtual49.jpg)
+
+A l'interior es posen les línies que es poden veure a la imatge, es guarden els canvis i es tanca el fitxer. En posar que el Pin-priority sigui 700 amb això el que s’aconsegueix és que en ser el 700 un número més alt que el 500 per defecte, amb aquest canvi, es realitza de forma predeterminada la instal·lació que es vol fer de forma automàtica.
+
+Després de fer aquesta modificació cal actualitzar la informació amb la comanda **sudo apt update** i després es torna a posar la comanda **sudo apt-cache policy audacity** per a comprovar si realment ha funcionat el canvi realitzat.
+
+![Imatge comprovació de instal·lació d'Audacity](../imatges/maquina_virtual50.jpg)
+
+Tal com es pot apreciar a la imatge, els canvis ja han estat aplicats i ara ja surt que s'instal·larà la versió 3.7.3 i no la 3.4.2 que és la que sortia abans per defecte. Es pot veure com apareix el número 700 que s’ha posat al fitxer de configuració i ara se li dona a instal·lar aquest ja s'instal·larà per defecte.
+
+Amb aquest canvi, només cal aplicar la comanda **sudo apt install audacity** com es faria sempre.
+
+![Imatge on es veu que Audacity ja esta instal·lat al sistema](../imatges/maquina_virtual51.jpg)
+
+Després de fer la instal·lació i tornar a posar la comanda sudo apt-cache policy audacity, es pot veure com s’ha instal·lat l’aplicació, s’ha instal·lat la versió que es volia que s'instal·lés i continua apareixent amb la valoració de 700 la qual està per damunt de la que s’hauria d’haver posat per defecte i la qual té una valoració de 500 que és inferior en aquest cas.
 
 # Llicenciament
 
