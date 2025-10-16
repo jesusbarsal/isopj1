@@ -28,6 +28,5 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
     - [Configuració de la xarxa](sp1/index.md#configuraci%C3%B3-de-la-xarxa)
     - [Comandes generals i instal·lacións](sp1/index.md#comandes-generals-i-installacions)
        - [Instal·lació d'aplicació manualment d'una versió concreta](sp1/index.md#installaci%C3%B3-daplicaci%C3%B3-manualment-duna-versi%C3%B3-concreta)
-       - [Instal·lació aplicació prioritzant una versió i/o repositori concret Pinned version]([sp1/index.md#installaci%C3%B3-aplicaci%C3%B3-prioritzant-un-repositori-concret-pinned-version]
        - [Instal·lació aplicació prioritzant una versió i/o repositori concret](sp1/index.md#installaci%C3%B3-aplicaci%C3%B3-prioritzant-una-versi%C3%B3-io-repositori-concret-pinned-version))
 
