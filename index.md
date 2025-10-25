@@ -10,7 +10,7 @@ Aquest repositori compte el contingut dels exercicis que se'ns va demanant a la 
 El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internacional](LICENSE.md).
 
 # Contingut del curs
-- **Unitat 1. Sprint1**
+- **Unitat 1. Sprint1: Implantació de sistemes operatius**
    - [Màquina virtual dual Ubuntu - Windows](sp1/index.md).
       - [Configuració de Virtualbox](sp1/index.md#configuraci%C3%B3-de-virtualbox)
       - [Instal·lació del sistema operatiu Ubuntu](sp1/index.md#installaci%C3%B3-del-sistema-operatiu-ubuntu)
