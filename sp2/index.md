@@ -34,4 +34,46 @@ Si hi ha molts fitxers petits, la pèrdua d’espai pot ser considerable.
 ```
 Aquesta fragmentació és inevitable, ja que els blocs són d’una mida fixa. Els sistemes moderns intenten minimitzar-ne l’impacte ajustant la mida de bloc.
 
+## Fragmentació externa
+
+La fragmentació externa apareix quan un fitxer no pot ser emmagatzemat en blocs contigus, i el sistema ha de dividir-lo en diverses parts disperses pel disc. Això fa que el capçal del disc dur hagi de moure’s més per llegir el fitxer complet, reduint el rendiment.
+
+```
+En discs SSD, aquest problema no afecta gaire, ja que no hi ha parts mòbils. En disc durs mecanics, és recomanable fer desfragmentació periòdica per reorganitzar els blocs contigus. Tanmateix en les ultimes versions dels sistemes operatius ja no es tant necessari com en versions anteriors.
+```
+
+## Tipus de formateig
+
+El formateig és el procés que prepara un dispositiu d’emmagatzematge per poder-hi desar dades. Hi ha diversos nivells segons la profunditat de l’operació:
+
+### Formateig de baix nivell
+
+* Escriu els sectors físics i defineix com es divideix el disc en pistes i sectors.
+* El realitza el fabricant o programes de manteniment especials.
+* Només s’utilitza per recuperar discs defectuosos o en diagnosi.
+* En discs moderns ja no és recomanable fer-lo manualment.
+
+### Formateig de mig nivell
+
+* Reorganitza les àrees del disc i pot marcar sectors danyats per evitar-ne l’ús.
+* Antigament s’usava com a pas intermedi entre el baix i l’alt nivell.
+* Actualment, la majoria de sistemes no fan distinció i integren aquesta tasca en el formateig d’alt nivell.
+
+### Formateig d'alt nivell
+
+* Crea el sistema de fitxers (FAT, NTFS, ext4...) i les seves estructures de control (taules d’arxius, inodes, etc.).
+* És el formateig habitual que fem des de Windows, macOS o Linux.
+* Elimina les dades lògiques, però no sempre les físiques, de manera que poden ser recuperables amb programes especials.
+
+## Gestió de particions
+
+La gestió de particions consisteix a crear, eliminar, redimensionar o modificar les particions d’un disc dur.
+
+Objectius principals:
+* Separar sistemes operatius o dades.
+* Millorar l’organització i la seguretat.
+* Preparar nous discs o recuperar espai.
+* Crear esquemes GPT/MBR segons la necessitat.
+
+Els sistemes operatius moderns permeten fer-ho tant des de gràfics (com GParted o Gestor de discs de Windows) com des de la línia de comandes (fdisk, parted...).
 
