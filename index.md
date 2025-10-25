@@ -31,9 +31,9 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
        - [Instal·lació aplicació prioritzant una versió i/o repositori concret](sp1/index.md#installaci%C3%B3-aplicaci%C3%B3-prioritzant-una-versi%C3%B3-io-repositori-concret-pinned-version))
 
 - **Unitat 1. Sprint2: instal·lació, configuració de programari de base i gestio de fitxers**
-    - [Sistemes de fitxers i particions]
-        - [Mida sector]
-        - [Mida block]
+    - [Sistemes de fitxers i particions](/sp2/index.md#sistemes-de-fitxers-i-particions)
+        - [Mida sector](/sp2/index.md#mida-sector)
+        - [Mida block](/sp2/index.md#mida-block)
         - [Fragmentació interna]
         - [Fragmentació externa]
         - [Tipus de formateig]
