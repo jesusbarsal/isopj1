@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Sprint2: Implantació de sistemes operatius"
+title: "Sprint2: Instal·lació, Configuració de Programari de Base i Gestió de Fitxers"
 ---
 
-# Màquina
+# Sistemes de fitxers i particions
