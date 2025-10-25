@@ -28,8 +28,10 @@ Quan un fitxer s’emmagatzema, ocupa almenys un bloc complet.
 
 La **fragmentació interna** succeeix quan un fitxer no omple completament el bloc assignat. L’espai no utilitzat dins del bloc es perd, ja que el bloc no es pot compartir entre dos fitxers.
 
-´´´
+```
 Exemple: un fitxer de 3 KB en un bloc de 4 KB deixa 1 KB desaprofitat.
 Si hi ha molts fitxers petits, la pèrdua d’espai pot ser considerable.
-´´´
+```
+Aquesta fragmentació és inevitable, ja que els blocs són d’una mida fixa. Els sistemes moderns intenten minimitzar-ne l’impacte ajustant la mida de bloc.
+
 
