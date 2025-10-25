@@ -42,6 +42,39 @@ La fragmentació externa apareix quan un fitxer no pot ser emmagatzemat en blocs
 En discs SSD, aquest problema no afecta gaire, ja que no hi ha parts mòbils. En disc durs mecanics, és recomanable fer desfragmentació periòdica per reorganitzar els blocs contigus. Tanmateix en les ultimes versions dels sistemes operatius ja no es tant necessari com en versions anteriors.
 ```
 
+## Com mostra l'espai que ocupa un fitxer o directori al disc
+
+Amb la comanda **du** (disk usage) es pot visualitzar l’espai que ocupa un fitxer o directori al disc. Per a poder-ho visualitzar s'ha creat un fitxer amb la següent comanda **touch hola**. Això crear un fitxer sense contingut, únicament hi ha el nom.
+
+Després de crear-lo, a continuació amb la comanda du amb els següents paràmetres es podrà veure la següent informació.
+
+![Imatge amb els parametres de la comanda du](../imatges/sprint2_01.jpg)
+
+* **du -b hola**
+   * Mostra la mida real en bytes del fitxer.
+   * Vol dir que el fitxer ocupa 8 bytes reals de dades.
+     Aquesta és la mida del contingut del fitxer, no l’espai reservat al disc.
+
+* **du -sh hola**
+   * -s: mostra només el total resumit (sense detallar carpetes internes)
+   * -h: mostra la mida en format humà (K, M, G...).
+Indica que el fitxer ocupa un bloc de 4 KB al disc, tot i que només té 8 bytes de dades. Això passa per la fragmentació interna: el sistema de fitxers reserva un bloc sencer (4 KB) per al fitxer encara que no l’ompli.
+
+* **du -sbh hola**
+    * -s: resum total.
+    * -b: mostra la mida en bytes.
+    * -h: mostra la mida humana (en aquest cas no té efecte perquè -b té prioritat).
+ Igual que du -b, mostra els 8 bytes reals de dades.
+
+* **du -bh hola**
+    * Equivalent pràcticament a l’anterior (du -sbh).
+    * Mostra la mida real del fitxer en bytes, però no la mida que ocupa al disc.
+
+* **du -sb hola**
+    * -s: només el total.
+    * -b: en bytes exactes.
+De nou, indica la mida real de dades, no la de l’espai ocupat.
+
 ## Tipus de formateig
 
 El formateig és el procés que prepara un dispositiu d’emmagatzematge per poder-hi desar dades. Hi ha diversos nivells segons la profunditat de l’operació:
