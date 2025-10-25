@@ -56,23 +56,23 @@ Després de crear-lo, a continuació amb la comanda du amb els següents paràme
      Aquesta és la mida del contingut del fitxer, no l’espai reservat al disc.
 
 * **du -sh hola**
-   * -s: mostra només el total resumit (sense detallar carpetes internes)
-   * -h: mostra la mida en format humà (K, M, G...).
+   * **-s:** mostra només el total resumit (sense detallar carpetes internes)
+   * **-h:** mostra la mida en format humà (K, M, G...).
 Indica que el fitxer ocupa un bloc de 4 KB al disc, tot i que només té 8 bytes de dades. Això passa per la fragmentació interna: el sistema de fitxers reserva un bloc sencer (4 KB) per al fitxer encara que no l’ompli.
 
 * **du -sbh hola**
-    * -s: resum total.
-    * -b: mostra la mida en bytes.
-    * -h: mostra la mida humana (en aquest cas no té efecte perquè -b té prioritat).
- Igual que du -b, mostra els 8 bytes reals de dades.
+    * **-s:** resum total.
+    * **-b:** mostra la mida en bytes.
+    * **-h:** mostra la mida humana (en aquest cas no té efecte perquè -b té prioritat).
+ Igual que **du -b**, mostra els 8 bytes reals de dades.
 
 * **du -bh hola**
     * Equivalent pràcticament a l’anterior (du -sbh).
     * Mostra la mida real del fitxer en bytes, però no la mida que ocupa al disc.
 
 * **du -sb hola**
-    * -s: només el total.
-    * -b: en bytes exactes.
+    * **-s:** només el total.
+    * **-b:** en bytes exactes.
 De nou, indica la mida real de dades, no la de l’espai ocupat.
 
 ## Tipus de formateig
