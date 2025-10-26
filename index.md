@@ -44,6 +44,9 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
         - [Gestió de particions](/sp2/index.md#gesti%C3%B3-de-particions)
             - [Creació del disc dur virtual i afegir-lo a la màquina virtual Ubuntu](/sp2/index.md#creaci%C3%B3-del-disc-dur-virtual-i-afegir-lo-a-la-m%C3%A0quina-virtual-ubuntu)
             - [Comprovació del disc dur al sistema](/sp2/index.md#comprovaci%C3%B3-del-disc-dur-al-sistema)
+            - [Creació de les particions al nou disc dur](/sp2/index.md#creaci%C3%B3-de-les-particions-al-nou-disc-dur)
+        - [El proces de formatació del disc dur](/sp2/index.md#el-proces-de-formataci%C3%B3-del-disc-dur)
+        - 
         - [Gparted]
         - [Comandes]
         - [Gestió de processos]
