@@ -128,11 +128,45 @@ Per tal de comprovar que el disc dur esta disponible al sistema, en primer lloc 
 
 ![Imatge terminal comprovació ubicació del disc dur afegit](../imatges/sprint2_05.jpg)
 
+Des del terminal s'ha pogut comprovar com el disc dur creat apareix correctament al sistema, però com és normal cal preparar-lo per a treballar amb ell. Com es pot apreciar a la imatge, el disc dur apareix a la ruta **/dev/sdb**. Amb aquesta dada, ja es pot començar amb el particionat del disc i posterior formatatge.
+
+També en aquest cas, com que es disposa de l'aplicació Gparted, també s'ha realitzat la mateixa comprovació però en aquest cas en format gràfic, i també ens mostra la mateixa informació que el terminal.
+
 ![Imatge gparted amb el disc dur sense particionar](../imatges/sprint2_04.jpg)
 
-Comprovat que el nou disc dur ja està disponible, i que aquest es troba com a /dev/sbd/, es procedeix a la creació de les particions. Tambe es podria averi
+Comprovat que el nou disc dur ja està disponible, i que aquest es troba com a **/dev/sbd/**, es procedeix a la creació de les particions.
 
 ### Creació de les particions al nou disc dur
 
-Per tal de crear les particions al disc dur, s'utilitzar la comanda **fdisk**. Per tal de crear les particions 
+Comprovada la ubicació del disc dur es procedeix a la creació de les particions utilitzant la comanda **fdisk**.
+
+![Imatge amb la creació de les particions al disc dur](../imatges/sprint2_06.jpg)
+
+Les comandes utilitzades han estat les següents:
+* **n:** Per a crear una partició nova
+* **p:** Per a crear una partició primària
+* **Número partició:** 1 per defecte en aquest cas, ja que és la primera que es realitza.
+* **Primer sector:** per defecte, 2048 que es on comença el disc
+* **Últim sector:** 26000000 al particionar el disc en dos, inicialment posem la meitat del disc aproximadament
+I amb això ja tindríem la primera partició creada. A continuació es crea la segona partició continuant des de dintre de la comanda fdisk ja que no cal sortir-ne.
+
+![Imatge de la creació de la segona particio del disc dur](../imatges/sprint2_07.jpg)
+
+En aquest cas comencem de nou amb els mateixos passos que en el pas anterior.
+* **n:** crear nova partició
+* **p:** per a crear novament una partició primària
+* **Número de partició:** 2 per defecte, ja que ja l'aplicació ja detecta que tenim la primera creada.
+* **Primer sector:** en aquest cas ens mostra 260001408 que és on ha acabat la primera partició. 
+* **Last sector:** en aquest cas ja és el final del disc dur i es polsa intro, ja que és el valor predeterminat i el correcte a inserir en aquest cas.
+
+![Imatge aplicacio comanda per sortir de fdisk](../imatges/sprint2_08.jpg)
+
+Després d’això ja tindríem les dues particions creades, únicament ens quedaria aplicar la comanda **w** per tal d’aplicar els canvis i sortir de la comanda fdisk
+
+Després de realitzar aquests canvis es torna a posar la comanda fdisk -l per a comprovar com s’han realitzat els canvis al disc dur i on han d’aparèixer les dues particions creades si tot ha anat correctament.
+
+![imatge amb la comprovacio de la creació de les particions del disc dur](../imatges/sprint2_09.jpg)
+
+
+
 
