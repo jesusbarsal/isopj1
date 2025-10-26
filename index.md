@@ -34,13 +34,16 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
     - [Sistemes de fitxers i particions](/sp2/index.md#sistemes-de-fitxers-i-particions)
         - [Mida sector](/sp2/index.md#mida-sector)
         - [Mida block](/sp2/index.md#mida-block)
-        - [Fragmentació interna]
-        - [Fragmentació externa]
-        - [Tipus de formateig]
-            - [Baix nivell]
-            - [Mig nivell]
-            - [Alt nivell]
-        - [Gestió de particions]
+        - [Fragmentació interna](/sp2/index.md#fragmentaci%C3%B3-interna)
+        - [Fragmentació externa](/sp2/index.md#fragmentaci%C3%B3-externa)
+        - [Com mostra l'espai que ocupa un fitxer o directori al disc](/sp2/index.md#com-mostra-lespai-que-ocupa-un-fitxer-o-directori-al-disc)
+        - [Tipus de formateig](/sp2/index.md#tipus-de-formateig)
+            - [Baix nivell](/sp2/index.md#formateig-de-baix-nivell)
+            - [Mig nivell](/sp2/index.md#formateig-de-mig-nivell)
+            - [Alt nivell](/sp2/index.md#formateig-dalt-nivell)
+        - [Gestió de particions](/sp2/index.md#gesti%C3%B3-de-particions)
+            - [Creació del disc dur virtual i afegir-lo a la màquina virtual Ubuntu](/sp2/index.md#creaci%C3%B3-del-disc-dur-virtual-i-afegir-lo-a-la-m%C3%A0quina-virtual-ubuntu)
+            - [Comprovació del disc dur al sistema](/sp2/index.md#comprovaci%C3%B3-del-disc-dur-al-sistema)
         - [Gparted]
         - [Comandes]
         - [Gestió de processos]
