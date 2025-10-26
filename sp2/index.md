@@ -110,3 +110,23 @@ Objectius principals:
 
 Els sistemes operatius moderns permeten fer-ho tant des de gràfics (com GParted o Gestor de discs de Windows) com des de la línia de comandes (fdisk, parted...).
 
+### Creació del disc dur virtual i afegir-lo a la màquina virtual Ubuntu
+
+Per a realitzar la part de les particions i formatacions, en primer lloc, es crearà una unitat de disc dur virtual de 25 GB, s’afegirà a la màquina virtual, i posteriorment es crearà el particionat i formatatge corresponent
+
+![Imatge amb les dades de creació del disc dur virtual](../imatges/sprint2_02.jpg)
+
+Imatge amb les dades de creació del disc dur virtual de 25 GB així com el nom i ruta d'accés del mateix
+
+![Imatge inserció disc dur creat a la maquina virtual](../imatges/sprint2_03.jpg)
+
+Imatge com queda la configuració de la màquina virtual després d'afegir el segon disc dur per a poder fer la pràctica. A continuació, s'arranca la màquina virtual i es procedeix a la comprovació de què el disc dur afegit apareix com a afegit al sistema.
+
+![Imatge gparted amb el disc dur sense particionar](../imatges/sprint2_04.jpg)
+
+Comprovat que el nou disc dur ja està disponible, i que aquest es troba com a /dev/sbd/, es procedeix a la creació de les particions. Tambe es podria averi
+
+### Creació de les particions al nou disc dur
+
+Per tal de crear les particions al disc dur, s'utilitzar la comanda **fdisk**. Per tal de crear les particions 
+
