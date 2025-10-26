@@ -201,6 +201,10 @@ Formatada la primera partició amb un sistema de fitxers **ext4** de sistemes Li
 
 En aquest cas el formatatge s’ha realitzat amb els paràmetres per defecte. Com es pot apreciar a la imatge la mida del bloc o clúster és de **4096 bytes**, que és la mida per defecte que s’apliquen als sistemes de fitxers NTFS.
 
+En aquest cas la comanda utilitzada per al formateig a estat:
+
+* sudo mkfs.ntfs /dev/sdb2
+
 Si es volgués comprovar que el formatatge ha estat correcte i no hem realitzat cap error, es podria utilitzar la comanda **lsblk -f** la qual mostra totes les unitats del sistema aixi com la informació del sistema de fitxers.
 
 ![Imatge de la comanda lsblk -f amb el resultat per al disc dur](../imatges/sprint2_13.jpg)
@@ -285,7 +289,7 @@ Internament, el sistema realitza el mateix procés que la comanda mount, però d
 Quan es munta una unitat des del gestor d’arxius (com Nautilus a GNOME o Dolphin a KDE), el sistema utilitza un servei intern anomenat udisks2, que realitza la comanda mount automàticament amb permisos d’usuari, no de root.
 Per defecte, les unitats muntades gràficament es col·loquen a:
 
-* /media/<nom_usuari>/<NomDelDispositiu>/
+* /media/jesus/sdb1/
 
 Per a desmuntar només cal fer un clic amb el botó de la dreta al damunt de la unitat, i ja apareix la comanda per a desmuntar.
 
