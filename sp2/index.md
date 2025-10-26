@@ -237,6 +237,85 @@ Tal com s’aprecia a la imatge es pot apreciar entre altres que la mida del **s
 
 ## Muntatge de particions al sistema
 
+Quan es crea una nova unitat de disc a Linux, aquesta no és accessible directament pel sistema operatiu. Per poder accedir-hi i treballar amb els seus fitxers, cal muntar-la en un punt concret del sistema de fitxers.
+
+Aquesta tasca es realitza mitjançant la comanda **mount**, que permet associar una partició o dispositiu amb un punt de muntatge (directori) dins de l’estructura del sistema. Un cop muntada, la unitat esdevé accessible com si fos una carpeta més del sistema.
+
+A Linux, totes les unitats de disc formen part d’una única jerarquia de directoris.  Per aquest motiu, quan es crea una nova partició o s’afegeix un dispositiu d’emmagatzematge, aquest no és accessible automàticament fins que s’hi realitza el muntatge.
+
+El muntatge consisteix a enllaçar el sistema de fitxers de la unitat amb un punt de muntatge dins de l’arbre principal (/). Això es pot fer manualment amb la comanda:
+
+* sudo mount /dev/sdb1 /mnt
+
+on /dev/sdb1 és la partició i /mnt és el directori on quedarà accessible. A partir d’aquest moment, el contingut de la unitat pot ser llegit i modificat com qualsevol altra carpeta del sistema.
+
+Quan s’ha acabat de treballar amb una unitat o dispositiu muntat, és recomanable desmuntar-lo correctament per assegurar que totes les dades s’hagin escrit al disc i evitar possibles errors o corrupcions. La comanda a utilitzar seria:
+* sudo umount /dev/sdb1
+Quan una unitat està desmuntada, ja no és accessible pel sistema operatiu fins que es torni a muntar. Si la unitat està en ús (per exemple, si hi ha un fitxer obert dins d’ella), la comanda umount mostrarà un error del tipus "target is busy". En aquest cas, cal tancar els fitxers o processos que l’estiguin utilitzant abans de desmuntar-la.
+
+### Muntatge i desmuntatge manual
+
+El muntatge manual es realitza mitjançant el terminal, utilitzant la comanda mount. En aquest cas la comanda seria:
+* sudo mkdir /mnt/sdb1
+* sudo mount /dev/sdb1 /mnt/sdb1
+
+![Imatge de la comanda de muntatge manual](../imatges/sprint2_17.jpg)
+
+Amb aquesta comanda s’indica al sistema que munti la partició **/dev/sdb1** al directori **/mnt/sdb1**, fent que el seu contingut sigui accessible des d’aquest punt del sistema de fitxers. És recomanable crear un subdirectori dins de **/mnt** amb el nom de la partició o un nom descriptiu, per tal de mantenir una estructura més clara i organitzada.
+
+Així, la partició queda muntada en un directori específic, facilitant-ne la identificació i l’accés. En el cas del desmuntatge quan s’ha acabat de treballar amb la unitat muntada, és important desmuntar-la correctament per assegurar que totes les dades s’hagin escrit al disc i evitar possibles errors o corrupcions. La comanda a utilitzar seria.
+
+* sudo umount /dev/sdb1
+
+Quan es treballa amb muntatges manuals, cal tenir en compte que el **muntatge realitzat d’aquesta manera és temporal**, no queda registrat al sistema i, per tant, **desapareix automàticament en reiniciar l’equip**. Si es vol que una unitat es munti automàticament en cada inici, cal afegir-ne la configuració al fitxer fstab, on es defineixen els muntatges permanents.
+
+![imatge amb el proces i muntatge comprovacio i desmuntatge d'una particio](../imatges/sprint2_18.jpg)
+
+A la imatge es pot apreciar tot el procés de muntatge i desmuntatge de la partició **/sdb1** dintre de **/mnt**. Abans s’ha creat ja la carpeta sdb1. El procés es pot apreciar com un cop muntada la partició, aquesta si s’accedeix mostra el seu contingut (carpeta lost+found).
+
+A continuació es procedeix al desmuntatge amb la comanda **umount**, però aquesta no ha estat permesa donat que estem a l'interior, no és possible desmuntar-la, per la qual cosa ja ens mostra l’error corresponent. Després de sortir-ne es torna a utilitzar la comanda umount aquesta vegada de forma correcta. En tornar a entrar a la carpeta **/mnt/sdb1**, ja es pot apreciar com ja no apareix la carpeta de la unitat i mostra el contingut de la carpeta **/mnt/sdb1** que en aquest cas no hi ha contingut.
+
+Tot i que el muntatge manual es pot fer mitjançant la comanda mount des del terminal, els entorns d’escriptori moderns com GNOME, KDE Plasma o XFCE permeten muntar particions i dispositius externs gràficament, sense necessitat d’utilitzar ordres.
+
+Quan es connecta un dispositiu (com una memòria USB o un disc dur extern), el sistema detecta automàticament la unitat i ofereix l’opció de muntar-la amb un sol clic des del gestor d’arxius (per exemple, Nautilus, Dolphin o Thunar). Un cop muntada, la unitat apareix en la barra lateral del gestor de fitxers i és accessible com qualsevol altra carpeta.
+
+Internament, el sistema realitza el mateix procés que la comanda mount, però de manera automàtica i temporal. Aquest tipus de muntatge no és permanent i desapareix quan s’expulsa el dispositiu o s’apaga l’equip.
+
+Quan es munta una unitat des del gestor d’arxius (com Nautilus a GNOME o Dolphin a KDE), el sistema utilitza un servei intern anomenat udisks2, que realitza la comanda mount automàticament amb permisos d’usuari, no de root.
+Per defecte, les unitats muntades gràficament es col·loquen a:
+
+* /media/<nom_usuari>/<NomDelDispositiu>/
+
+Per a desmuntar només cal fer un clic amb el botó de la dreta al damunt de la unitat, i ja apareix la comanda per a desmuntar.
+
+### Muntatge automàtic amb fstab
+
+Per tal d’evitar haver de muntar manualment les unitats cada vegada que s’inicia el sistema, Linux utilitza un fitxer especial anomenat **fstab (File System Table)**. Aquest fitxer conté la informació necessària perquè el sistema operatiu munti automàticament les particions o dispositius en iniciar-se. Cada línia del fitxer fstab defineix una unitat, el seu punt de muntatge i les opcions associades. 
+
+Tanmateix, el muntatge automàtic només té realment sentit en aquells casos en què la partició o unitat s’utilitza de manera continuada o permanent dins del sistema.  Per exemple, en particions que contenen directoris importants com /home, /var, /srv o carpetes de dades que el sistema o els serveis necessiten des del moment de l’arrencada.
+
+En canvi, per a dispositius externs o d’ús esporàdic (com discs USB, discos durs externs o unitats de còpia de seguretat), no és recomanable afegir-los a fstab. En aquests casos, és preferible realitzar un muntatge manual quan sigui necessari, o deixar que l’entorn gràfic del sistema (GNOME, KDE, etc.) gestioni automàticament el muntatge quan es connecti el dispositiu.
+
+![imatge de configuració del fitxer fstab](../imatges/sprint2_19.jpg)
+
+A l'última línia del fitxer fstab es pot apreciar com s’ha afegit una línia amb els paràmetres mínims necessaris perquè el muntatge de la partició es realitzi de forma automàtica en iniciar el sistema. En aquest cas la línia inserida ha estat la següent.
+
+* /dev/sdb1   /mnt/sdb1   ext4    rw,nofail 0   0
+
+Els paràmetres utilitzats són els següents.
+* **/dev/sdb1**	Indica quin és el dispositiu físic a muntar
+* **/mnt/sdb1**	Indica el punt on es muntarà el disc a muntar
+* **ext4** Indica el sistema de fitxers de la partició a muntar
+* **rw,nofail**	Indica que es muntarà amb permisos de lectura i escriptura i que permet evitar els errors en cas que el disc no hi sigui
+* **0 0**	indica Dump i fsck que no cal fer comprovacions d’arrancada.
+
+Quan es treballa amb el fitxer /etc/fstab (File System Table) s’ha de tindre molta cura, ja que és el responsable d’indicar al sistema quines particions, dispositius o unitats de xarxa s’han de muntar automàticament en iniciar Linux, i en quin punt del sistema de fitxers s’han de connectar.
+
+Cada línia del fitxer defineix una entrada de muntatge amb diversos paràmetres: el dispositiu o UUID, el punt de muntatge, el tipus de sistema de fitxers i les opcions de muntatge. Tot i ser molt útil, editar el fitxer fstab pot comportar certs riscos si no es fa correctament.
+
+Si el directori especificat com a punt de muntatge no existeix, el sistema no podrà muntar la partició i mostrarà un error. Crea el directori abans de muntar. Si la unitat és externa o no sempre està present, cal afegir l’opció nofail a la línia del fstab. Això evita que l’arrencada s’aturi si el dispositiu no es troba. Un sol espai de més o un camp mal escrit pot fer que el sistema no pugui llegir correctament fstab i no arrenqui
+
+Algunes opcions poden restringir l’accés o fer que el sistema no pugui escriure al dispositiu (ex: ro = read-only, noexec, etc.). El fitxer /etc/fstab és una eina molt potent que permet automatitzar el muntatge de particions, però també pot ser una font de problemes si s’edita sense precaució.
 
 ## Fragmentació dels sistemes de fitxers (ext4 i NTFS)
 
