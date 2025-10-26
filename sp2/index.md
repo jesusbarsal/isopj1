@@ -251,6 +251,7 @@ on /dev/sdb1 és la partició i /mnt és el directori on quedarà accessible. A 
 
 Quan s’ha acabat de treballar amb una unitat o dispositiu muntat, és recomanable desmuntar-lo correctament per assegurar que totes les dades s’hagin escrit al disc i evitar possibles errors o corrupcions. La comanda a utilitzar seria:
 * sudo umount /dev/sdb1
+
 Quan una unitat està desmuntada, ja no és accessible pel sistema operatiu fins que es torni a muntar. Si la unitat està en ús (per exemple, si hi ha un fitxer obert dins d’ella), la comanda umount mostrarà un error del tipus "target is busy". En aquest cas, cal tancar els fitxers o processos que l’estiguin utilitzant abans de desmuntar-la.
 
 ### Muntatge i desmuntatge manual
