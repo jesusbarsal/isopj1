@@ -122,6 +122,12 @@ Imatge amb les dades de creació del disc dur virtual de 25 GB així com el nom 
 
 Imatge com queda la configuració de la màquina virtual després d'afegir el segon disc dur per a poder fer la pràctica. A continuació, s'arranca la màquina virtual i es procedeix a la comprovació de què el disc dur afegit apareix com a afegit al sistema.
 
+### Comprovació del disc dur al sistema
+
+Per tal de comprovar que el disc dur esta disponible al sistema, en primer lloc s'obrira el terminal de l'Ubuntu i es posara la comanda **fdisk -l** per tal de poder comprovar que aquest apareix i en quina ubicació del sistema es troba.
+
+![Imatge terminal comprovació ubicació del disc dur afegit](../imatges/sprint2_05.jpg)
+
 ![Imatge gparted amb el disc dur sense particionar](../imatges/sprint2_04.jpg)
 
 Comprovat que el nou disc dur ja està disponible, i que aquest es troba com a /dev/sbd/, es procedeix a la creació de les particions. Tambe es podria averi
