@@ -222,9 +222,52 @@ Per exemple per a poder veure els valors que hi ha a una partició amb format **
 
 Amb aquesta comanda es pot apreciar el seguent:
 * **Block count: 6499488**
-  Indica el nombre total de blocs que té el sistema de fitxers dins d’aquesta partició que en aquest cas es de 6499488
+Indica el nombre total de blocs que té el sistema de fitxers dins d’aquesta partició que en aquest cas es de 6499488
 * **Block size: 2048**
-  Mostra la mida de cada bloc lògic del sistema de fitxers (definit en el moment del formateig), en aquest cas 2048. Per defecte, en ext4 la mida és 4.096 bytes (4 KB), però aquí s’ha canviat manualment amb el paràmetre -b 2048 al realitzar el formateig
+Mostra la mida de cada bloc lògic del sistema de fitxers (definit en el moment del formateig), en aquest cas 2048. Per defecte, en ext4 la mida és 4.096 bytes (4 KB), però aquí s’ha canviat manualment amb el paràmetre -b 2048 al realitzar el formateig
 * **Blocks per group: 16384**
-  Indica quants blocs formen cada grup de blocs dins del sistema de fitxers ext4. En ext4, els blocs s’organitzen en grups per millorar l’eficiència de la gestió i reduir la fragmentació. Aquí, cada grup conté 16.384 blocs (és a dir, 16.384 × 2.048 = 33.554.432 bytes ≈ 32 MB per grup).
+Indica quants blocs formen cada grup de blocs dins del sistema de fitxers ext4. En ext4, els blocs s’organitzen en grups per millorar l’eficiència de la gestió i reduir la fragmentació. Aquí, cada grup conté 16.384 blocs (és a dir, 16.384 × 2.048 = 33.554.432 bytes ≈ 32 MB per grup).
+
+Si el que es vol veure és la informació sobre el **sistema de fitxers NTFS** és necessària una altra comanda, ja que la primera com ja s’ha dit només es valida per a sistemes de fitxers **ext4**. La comanda a utilitzar finalment ha estat:
+* sudo ntfsinfo -m /dev/sdb2 | grep -A 15 "Volume Information"
+
+![imatge per a visualitzar les dades del sistema de fitxers NTFS](../imatges/sprint2_16.jpg)
+
+Tal com s’aprecia a la imatge es pot apreciar entre altres que la mida del **sector físic és de 512 bytes** que és el que ha agafat al crear la partició, mentre que la mida del **sector lògic ha quedat en 4096 bytes**. Això indica que un clúster (logic) agrupa diversos sectors físics per formar la unitat mínima que utilitza el sistema operatiu per desar un fitxer.
+
+## Muntatge de particions al sistema
+
+
+## Fragmentació dels sistemes de fitxers (ext4 i NTFS)
+
+La fragmentació és un fenomen que es produeix quan les dades d’un fitxer no s’emmagatzemen de manera contigua al disc, sinó disperses en diferents blocs o clústers. Això pot afectar el rendiment d’accés als fitxers, especialment en discs durs mecànics (HDD).
+
+Tot i que la fragmentació pot aparèixer en qualsevol sistema de fitxers, el seu impacte i gestió varien segons el tipus: NTFS (Windows) i ext4 (Linux).
+
+Com ja s’ha comentat al principi del document existeix la fragmentació interna es la que es produeix dins dels blocs o clústers. Succeeix quan un fitxer no omple completament el bloc assignat, deixant espai desaprofitat dins d’ell.
+I per l’altre costat està la fragmentació externa que apareix quan els fitxers es divideixen en fragments que es guarden en blocs no contigus al disc. Això passa quan s’esborren o creen molts fitxers i l’espai lliure es dispersa, etc.
+
+### Fragmentació en NTFS (Windows)
+
+NTFS tendeix a fragmentar-se amb el temps perquè:
+* No sempre pot col·locar els fitxers grans en blocs contigus.
+* L’espai lliure es fragmenta amb les operacions d’escriptura i esborrat.
+
+Windows inclou una eina de desfragmentació automàtica (“Desfragmentar i optimitzar unitats”). En discs SSD, aquesta eina no desfragmenta sinó que executa l’ordre TRIM, que optimitza l’ús dels blocs.
+
+### Fragmentació en ext4 (Linux)
+
+El sistema de fitxers ext4 està molt optimitzat per evitar la fragmentació externa pel següent:
+* Reserva espai addicional entre fitxers per permetre que puguin créixer sense trencar la contigüitat.
+* Utilitza un sistema anomenat extents, que guarda trams contigus de blocs junts.
+* Distribueix els fitxers en diferents grups de blocs per minimitzar la fragmentació.
+En ús normal, ext4 manté una fragmentació inferior al 2%, fins i tot després de molt temps. Amb ext4, no cal desfragmentar manualment, tot i que existeixen eines com e4defrag per optimitzar un sistema molt ple o molt antic.
+
+### La comanda e4defrag
+
+Com ja s’acaba de dir, per a desfragmentar una unitat amb **ext4** hi ha la comanda **e4defrag**. Aquesta comanda funciona de manera que si detecta que la unitat no necessita desfragmentació, no realitza cap moviment, i si aquesta detecta una fragmentació excessiva, aquesta realitza una desfragmentació de la partició. La comanda per aplicar-la seria la següent:
+
+* e4defrag /dev/sdb1
+
+
 
