@@ -347,7 +347,21 @@ En ús normal, ext4 manté una fragmentació inferior al 2%, fins i tot després
 
 Com ja s’acaba de dir, per a desfragmentar una unitat amb **ext4** hi ha la comanda **e4defrag**. Aquesta comanda funciona de manera que si detecta que la unitat no necessita desfragmentació, no realitza cap moviment, i si aquesta detecta una fragmentació excessiva, aquesta realitza una desfragmentació de la partició. La comanda per aplicar-la seria la següent:
 
-* e4defrag /dev/sdb1
+* sudo e4defrag -c /mnt/sdb1
 
+![Imatge amb el resultat de la comanda e4defrag](../imatges/sprint2_20.jpg)
 
+El sistema de fitxers està completament optimitzat, e4defrag ha analitzat tots els fitxers dins de **/mnt/sdb1** i ha trobat que cap d’ells no està dividit en blocs separats.
 
+## Particions i volums
+
+Quan es parla de particions i volums cal, en primer lloc, tindre clar el concepte de cada cosa. Per un costat hi ha la partició, aquesta és una divisió lògica dins d’un dispositiu d’emmagatzematge físic (com un disc dur, SSD o memòria externa). Mitjançant el particionat, es pot organitzar millor l’espai del disc, separant dades o sistemes diferents dins del mateix dispositiu. 
+
+Cada partició es comporta com si fos un disc independent i pot tenir el seu propi sistema de fitxers (NTFS, ext4, FAT32, etc.). Per exemple, un mateix disc físic pot tenir una partició per al sistema operatiu i una altra per a les dades de l’usuari.
+
+I per l’altre costat es troben els volums, un volum és una unitat lògica d’emmagatzematge que el sistema operatiu pot muntar i utilitzar per llegir o escriure dades. És el que l’usuari veu com una unitat accessible (com ara C:, D: o /home). Cada volum correspon, generalment, a una partició, però també pot estar format per diverses particions o diversos discs combinats.
+
+Per tant, per a entendre les diferències entre una relació i una partició i un volum es pot dir el següent:
+* Una partició és una divisió del disc físic.
+* Un volum és la unitat lògica creada a partir d’una o més particions.
+* Normalment, hi ha una relació d’1 a 1 (una partició = un volum), però en sistemes més avançats (com LVM o RAID) diverses particions poden formar un únic volum, o un volum pot estar repartit en diversos discs físics.
