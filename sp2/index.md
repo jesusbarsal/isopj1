@@ -148,7 +148,9 @@ Les comandes utilitzades han estat les següents:
 * **Número partició:** 1 per defecte en aquest cas, ja que és la primera que es realitza.
 * **Primer sector:** per defecte, 2048 que es on comença el disc
 * **Últim sector:** 26000000 al particionar el disc en dos, inicialment posem la meitat del disc aproximadament
-I amb això ja tindríem la primera partició creada. A continuació es crea la segona partició continuant des de dintre de la comanda fdisk ja que no cal sortir-ne.
+I amb això ja tindríem la primera partició creada.
+
+A continuació es crea la segona partició continuant des de dintre de la comanda fdisk ja que no cal sortir-ne.
 
 ![Imatge de la creació de la segona particio del disc dur](../imatges/sprint2_07.jpg)
 
@@ -167,6 +169,30 @@ Després de realitzar aquests canvis es torna a posar la comanda fdisk -l per a 
 
 ![imatge amb la comprovacio de la creació de les particions del disc dur](../imatges/sprint2_09.jpg)
 
+A la imatge es pot apreciar com al disc dur de 25 GB i que es troba a **/dev/sdb** ja apareixen les dues particions creades tal com s’ha realitzat amb la comanda **fdisk**. Però també una informació que ens mostra la comanda és la mida dels **sectors** del disc el qual ja ens mostra que els sectors o clústers són de **512 bytes**.
 
+![Imatge amb la comprovació de la creació de les particions des de Gparted](../imatges/sprint2_10.jpg)
+
+Si es volgués comprovar l’estat del disc dur per l’entorn gràfic, es tornaria a entrar a l’aplicació **Gparted** i després d’escollir el segon disc dur, aquest ja ens mostra correctament també la creació de les dues particions.
+
+**Amb el particionat de discs** com es pot apreciar, tant es pot fer per **entorn gràfic** mitjançant amb aplicacions com **Gparted com pel terminal**, però s’ha de saber una cosa important que és per exemple que amb **Gparted no es pot modificar la mida del bloc**. Això vol dir que les aplicacions d’entorn gràfic no tenen les mateixes funcionalitats que les de línia d'ordres com fdisk.
+
+## El proces de formatació del disc dur
+
+Un cop s’ha dividit el disc dur en particions, és necessari formatejar-les abans de poder-les utilitzar. El formateig és el procés que **crea l’estructura lògica** (sistema de fitxers) que permet al sistema operatiu organitzar i desar dades dins de la partició.
+
+Per tant, l’ordre correcte és:
+* **Particionar el disc:** definir les àrees on s’emmagatzemaran dades o sistemes operatius.
+* **Formatejar cada partició:** crear-hi el sistema de fitxers (com ext4, NTFS, FAT32...).
+Sense aquest segon pas, el sistema operatiu no pot reconèixer ni utilitzar l’espai del disc.
+
+![Imatge del formateig de la primera particio del disc dur](../imatges/sprint2_11.jpg)
+
+Per al formatatge de la primera partició i tal com s’aprecia a la imatge s’ha creat un sistema de fitxers **ext4** propi dels sistemes Linux. En aquest cas s’ha utilitzat el paràmetre -b 2048 que defineix la mida de bloc del sistema de fitxers a 2048 bytes en lloc del valor predeterminat de 4096 habitual en ext4. 
+
+D’aquesta manera, cada bloc del sistema de fitxers pot emmagatzemar fins a 2 KB de dades, fet que pot millorar l’aprofitament de l’espai en fitxers petits, pero empitjorar-lo en algunes altres.
+
+La comanda utilitzada ha estat: 
+* sudo mkfs.ext4 -b 2048 /dev/sdb1
 
 
