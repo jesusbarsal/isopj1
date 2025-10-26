@@ -195,4 +195,36 @@ D’aquesta manera, cada bloc del sistema de fitxers pot emmagatzemar fins a 2 K
 La comanda utilitzada ha estat: 
 * sudo mkfs.ext4 -b 2048 /dev/sdb1
 
+Formatada la primera partició amb un sistema de fitxers **ext4** de sistemes Linux, a continuació es procedirà al formatatge de la segona partició, que en aquest cas es realitzarà amb un sistema de fitxers **NTFS** propietari dels sistemes operatius Windows
+
+![Imatge del formateig de la segona partició del disc amb el sistema NTFS](../imatges/sprint2_12.jpg)
+
+En aquest cas el formatatge s’ha realitzat amb els paràmetres per defecte. Com es pot apreciar a la imatge la mida del bloc o clúster és de **4096 bytes**, que és la mida per defecte que s’apliquen als sistemes de fitxers NTFS.
+
+Si es volgués comprovar que el formatatge ha estat correcte i no hem realitzat cap error, es podria utilitzar la comanda **lsblk -f** la qual mostra totes les unitats del sistema aixi com la informació del sistema de fitxers.
+
+![Imatge de la comanda lsblk -f amb el resultat per al disc dur](../imatges/sprint2_13.jpg)
+
+A la imatge es pot apreciar com si ens centrem en el disc dur /dev/sdb, ens apareixen les dues particions existents així com el seu sistema de fitxers de cadascuna. Però, per als que els agrada l’entorn gràfic, també es pot comprovar el resultat del formatge així com de les particions des de l’aplicació Gparted.
+
+![Imatge final de les particions i formatatges amb Gparted](../imatges/sprint2_14.jpg)
+
+A la imatge, es pot apreciar com Gparted mostra les particions existents així com el sistema de fitxers de cadascuna d’elles.
+
+## Observació dels valors existents a les particions creades
+
+Arribats aquí, ja estan les dues particions amb els seus sistemes de fitxers creats, per la qual cosa ja tenim el disc dur apunt per a ser utilitzat i afegir les dades necessàries. Per acabar i per a comprovar tot el que s’ha vist fins aquí, ens queda visualitzar com han quedat els valors al final de tot el procés.
+
+Per exemple per a poder veure els valors que hi ha a una partició amb format **ext4** com es el cas, es pot utilitzar la comanda **tune2fs**, que permet mostrar tots els valors com ara la mida dels blocs. Per a veure el resultat, la comanda seria:
+* sudo tune2fs -l /dev/sdb1 | grep Block
+
+![Imatge amb els valors de la comanda tune2fs](../imatges/sprint2_15.jpg)
+
+Amb aquesta comanda es pot apreciar el seguent:
+* **Block count: 6499488**
+  Indica el nombre total de blocs que té el sistema de fitxers dins d’aquesta partició que en aquest cas es de 6499488
+* **Block size: 2048**
+  Mostra la mida de cada bloc lògic del sistema de fitxers (definit en el moment del formateig), en aquest cas 2048. Per defecte, en ext4 la mida és 4.096 bytes (4 KB), però aquí s’ha canviat manualment amb el paràmetre -b 2048 al realitzar el formateig
+* **Blocks per group: 16384**
+  Indica quants blocs formen cada grup de blocs dins del sistema de fitxers ext4. En ext4, els blocs s’organitzen en grups per millorar l’eficiència de la gestió i reduir la fragmentació. Aquí, cada grup conté 16.384 blocs (és a dir, 16.384 × 2.048 = 33.554.432 bytes ≈ 32 MB per grup).
 
