@@ -46,7 +46,15 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
             - [Comprovació del disc dur al sistema](/sp2/index.md#comprovaci%C3%B3-del-disc-dur-al-sistema)
             - [Creació de les particions al nou disc dur](/sp2/index.md#creaci%C3%B3-de-les-particions-al-nou-disc-dur)
         - [El proces de formatació del disc dur](/sp2/index.md#el-proces-de-formataci%C3%B3-del-disc-dur)
-        - 
+        - [Observació dels valors existents a les particions creades](/sp2/index.md#observaci%C3%B3-dels-valors-existents-a-les-particions-creades)
+        - [Muntatge de particions al sistema](/sp2/index.md#muntatge-de-particions-al-sistema)
+            - [Muntatge i desmuntatge manual](/sp2/index.md#muntatge-i-desmuntatge-manual)
+            - [Muntatge automàtic amb fstab](/sp2/index.md#muntatge-autom%C3%A0tic-amb-fstab)
+        - [Fragmentació dels sistemes de fitxers (ext4 i NTFS)](/sp2/index.md#fragmentaci%C3%B3-dels-sistemes-de-fitxers-ext4-i-ntfs)
+            - [Fragmentació en NTFS (Windows)](/sp2/index.md#fragmentaci%C3%B3-en-ntfs-windows)
+            - [Fragmentació en ext4 (Linux)](/sp2/index.md#fragmentaci%C3%B3-en-ext4-linux)
+            - [La comanda e4defrag](/sp2/index.md#la-comanda-e4defrag)
+        - [Particions i volums](/sp2/index.md#particions-i-volums)
         - [Gparted]
         - [Comandes]
         - [Gestió de processos]
