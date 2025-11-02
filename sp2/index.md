@@ -389,6 +389,153 @@ Un usuari en Linux és una identitat individual que pot iniciar sessió i utilit
 * Es pot limitar què pot fer cadascú (per exemple, alguns poden instal·lar programes i altres no).
 * També hi ha usuaris del sistema (com root, daemon, www-data, etc.) que s’utilitzen perquè els serveis del sistema funcionin de manera segura i separada.
 
+#### Tots els usuaris tenen els mateixos permisos?
+
+No. Hi ha diferents nivells de permisos:
+
+* **Usuari normal:** pot treballar només dins del seu espai i amb els seus fitxers.
+* **Usuari administrador (root):** té tots els privilegis del sistema i pot fer qualsevol canvi.
+* **Usuaris de sistema:** no inicien sessió, serveixen per executar serveis o processos.
+
+#### On trobar els usuaris al sistema.
+
+En Linux, la gestió dels usuaris es realitza des del fitxer passwd. Aquest fitxer és un dels fitxers més importants del sistema operatiu i es pot localitzar dintre de la carpeta /etc/. Per a accedir-hi cal posar la següent comanda.
+* sudo nano /etc/passwd
+
+![Imatge del fitxer passwd](../imatges/sprint2_25.jpg)
+
+La funció d’aquest fitxer és la de guardar la informació bàsica de tots els usuaris del sistema. Cada línia d’aquest fitxer representa un usuari i conté diversos camps separats per dos punts (:)
+
+Permet associar-los amb els seus UID, grups, directoris personals i shells, a més permet que el sistema sàpiga qui és cada usuari i que pot fer.
+
+#### L’estructura d’una línia és la següent.
+
+* nom_usuari:x:UID:GID:comentari:directori_personal:shell
+* jesus:x:1000:1000:jesus:/home/jesus: /bin/bash (Exemple real)
+
+#### El significat de cada camp és el següent:
+* **nom_usuari:** És el nom amb què l’usuari inicia sessió
+* **x:** Indica que la contrasenya està xifrada al fitxer /etc/shadow
+* **UID:** Identificador numèric únic de l’usuari
+* **GID:** Identificador numèric del grup principal de l’usuari
+* **Comentari:** Camp opcional per descriure l’usuari (nom complet, funcio, etc)
+* **Directori_personal:** Ruta on l’usuari te els seus fitxers
+* **shell:** Programa que s’executa quan l’usuari inicia sessio.
+
+Altres detalls del fitxer és que és un fitxer llegible per tothom, però només l’usuari root pot modificar-lo. Conte tant usuaris humans com usuaris del sistema com ara.
+
+* root:x:0:0:root:/root:/bin/bash
+* daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+* www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+
+Els usuaris del sistema es poden distingir perquè normalment tenen un identificador numèric (UID) inferior a 1000, mentre que els usuaris creats per persones tenen UIDs a partir de 1000.
+
+A més, els usuaris del sistema sovint no tenen directori personal a /home ni una shell activa (apareix com /usr/sbin/nologin o, ja que no estan pensats per iniciar sessió, sinó per fer funcionar serveis del sistema. A la imatge anterior es pot veure el que s’explica aquí aplicat a la pràctica.
+
+#### Com crear un usuari
+
+En Linux, per a crear un usuari principalment es pot fer bé per la part gràfica entrant a la configuració del sistema, o bé pel terminal amb comandes. Per l’entorn gràfic si es va a paràmetres, opció Sistema.
+
+![Imatge configuració d'usuaris per entorn grafic](../imatges/sprint2_26.jpg)
+
+Ja es pot veure l’opció d’usuaris, un cop dins ja podríem afegir els usuaris que facin falta. Tanmateix, aquesta opció no es profunditzarà, ja que únicament permet la creació d’usuaris de forma bàsica, mentre que pel terminal es poden definir moltes més opcions avançades.
+
+Per a crear un usuari des del Terminal es pot utilitzar dues comandes, la comanda **adduser** o la comanda **useradd**.
+
+La comanda **useradd** és una comanda molt més tècnica i directa i que està pensada inicialment per a administradors o scripts automatitzats. Aquesta comanda conté una quantitat considerable d’opcions que per la seva longitud no es posaran aquí, però convé saber de la seva existència.
+
+La comanda **adduser**, per exemple, és una comanda més amigable que l’anterior. Per a crear un usuari cal posar la comanda **sudo adduser (nom_usuari)**. Al posar-la demana una contrasenya, el nom complet i altres dades opcionals pas a pas de forma més automatitzada i sense necessitat d’afegir paràmetres.
+
+![Imatge on es crea un usuari des del terminal](../imatges/sprint2_27.jpg)
+
+Un cop ja creat l’usuari, es pot fer una consulta per tal de comprovar que l’usuari s’ha creat correctament i veure les seves dades.
+
+![Imatge de comprovació de com s'ha creat un usuari](../imatges/sprint2_28.jpg)
+
+Si s’utilitza la comanda com s’aprecia a la imatge ens mostra l’usuari creat amb totes les seves dades que s’han generat dintre del sistema.
+
+#### Com eliminar un usuari
+
+Per a esborrar un usuari del sistema també es pot esborrar des de la part gràfica, però en aquest cas ens centrarem en l’apartat del Terminal, ja que com ja hem dit, les opcions són molt més completes que en l’entorn gràfic. Per a esborrar un usuari s’utilitzarà la comanda **sudo userdel nom_usuari**. Només els usuaris amb permisos de **root** poden eliminar comptes. Comandes a utilitzar per a esborrar un usuari.
+
+* **sudo deluser nom_usuari:** Elimina l’usuari pero conserva el seu directori personal
+* **sudo deluser –remove-home nom_usuari:** Elimina l’usuari i tambe el seu directori personal i fitxers associats
+* **sudo userdel nom_usuari:** Fa la mateixa funció pero es mes tecnica
+* **sudo userdel -r nom_usuari:** Elimina tambe el directori personal i el correu intern
+
+Quan s’esborra un usuari, és borr*a també la seva entrada dels fitxers del sistema (/etc/passwd, /etc/shadow i /etc/group).
+
+#### Modificar usuari
+La principal comanda per a modificar un usuari és la comanda usermod, la sintaxi de la comanda és: 
+* sudo usermod (opcions) nom_usuari
+Algunes de les opcions més habituals de la comanda són les següents:
+* **-l nou_nom:** Canvia el nom de l’usuari
+* **-d /nova/ruta:** Canvia el directori personal
+* **-m:** mou els fitxers al nou directori personal
+* **-s /bin/bash:** canvia el shell per defecte
+* **-g grup:** Canvia el grup principal
+* **-aG grup1, grup2:** afegeix l’usuari a grups secundaris
+* **-e AAAA-MM_DD:** Defineix una nova data de caducitat
+* **-L / -U:** Bloca (-L) o desbloqueja (-U) el compte.
+
+Alguns exemples de les comandes utilitzades per a modificar usuaris.
+
+![Imatge de la comanda usermod -s](../imatges/sprint2_29.jpg)
+![Imatge de la comanda usermod -L](../imatges/sprint2_30.jpg)
+![Imatge de la comanda usermod -U](../imatges/sprint2_31.jpg)
+
+#### Canviar el nom de l’usuari
+Quan es parla de canviar el nom d’usuari, aquest es pot realitzar de diferents maneres, una que seria canviar el nom de forma visible, però una altra cosa diferent i que no és el mateix és canviar-lo completament dins del sistema, incloent-hi la carpeta personal /home, permisos i referències internes.
+
+Abans de realitzar un compte complet d’usuari, és convenient realitzar una còpia de seguretat per si hi ha errors. És una feina que s’ha d’executar com a usuari root o amb sudo i cal tenir en compte que no es pot realitzar mentre es tingui la sessió oberta, per la qual cosa caldria disposar d’un altre usuari amb permisos d’administrador al sistema.
+
+Per a realitzar aquest canvi s’ha de realitzar en tres passos, ja que s’està modificant tres coses diferents. Per tant, les comandes a utilitzar serien les següents:
+* **sudo usermod -l nou_nom antic_nom** (canvia el nom de l’usuari)
+* **sudo mv /home/antic_nom /home/nou_nom** (canvia de nom la carpeta del perfil)
+* **sudo usermod -d /home/nou_nom -m nou_nom** (canvi la ruta del directori personal associada al compte)
+
+El perquè no es pot fer tot de cop és degut al fet que cada element pertany a un subsistema diferent (gestió d’usuaris, sistema de fitxers i configuració del compte). Si es fes de cop, podrien quedar referències trencades o fitxers sense propietari.
+
+Aquí s’ha vist fer-ho des del terminal, però és possible fer això des de l’entorn gràfic? La resposta seria que des de l’entorn gràfic només permet canviar el nom visible i algunes dades bàsiques, per canviar completament un usuari (nom intern, carpeta /home, permisos i rutes), només es pot fer des del terminal i amb les comandes abans comentades.
+
+#### Creació d’un usuari complet amb una sola comanda.
+La comanda **useradd** s’utilitza per crear usuaris de manera manual al sistema Linux. Per defecte, si s’executa sense opcions, només afegeix l’entrada de l’usuari als fitxers del sistema (/etc/passwd, /etc/shadow, /etc/group), però no crea el directori personal ni la resta d’elements necessaris.
+
+Si s’utilitza per exemple la comanda **sudo useradd nom_usuari**, això crea l’usuari, però no genera automàticament la carpeta /home/nom_usuari, no assigna cap shell d’inici, no posa cap contrasenya i no crea cap grup amb el mateix nom. És a dir, l’usuari existeix al sistema, però no pot iniciar sessió fins que es completen els altres passos manualment.
+
+Però hi ha la possibilitat de poder tots els passos d’un sol cop sense haver d’editar res després. Per a que això sigui possible caldria implementar la comanda de la següent manera.
+* sudo useradd -m -d /home/pere -s /bin/bash -c "Pere Martí" pere
+on cada apartat té el seu significat
+* **sudo:** Per a donar permisos d’administrador a la comanda
+* **useradd:** comanda per a inserir l’usuari
+* **-m:** Crea automàticament la carpeta personal /home/pere
+* **-d /home/pere:** Defineix la ruta del directori personal
+* **-s /bin/bash:** Assigna la Shell per defecte
+* **-c “Pere Marti”:** Afegeix un comentari o nom complet
+* **pere:** És el nom del nou usuari
+Únicament quedaria afegir la contrasenya. La contrasenya no es posa directament dintre de la comanda useradd per motius de seguretat no permet posar la contrasenya en text pla directament dins de la mateixa ordre. Això evita que la contrasenya quedi visible a la línia de comandes o registrada en l’historial del terminal (.bash_history) cosa que seria un risc. Per aquesta raó, un cop creat l’usuari es posaria la comanda sudo passwd pere per a afegir la contrasenya de forma segura.
+
+Avantatge de fer-ho tot d’una vegada és el de fer-ho tot en una sola comanda amb **useradd** estalvia temps i evita errors, ja que el sistema crea tots els elements necessaris de manera coherent: usuari, directori personal, shell i descripció. Això és especialment útil en entorns administratius o scripts automàtics on cal crear diversos usuaris de forma ràpida i controlada.
+
+Però si es volgués fer tot complet també es podria fer amb les comandes 
+* sudo useradd -m -d /home/pere -s /bin/bash -c "Pere Martí" pere 
+* echo "pere:1234" | sudo chpasswd (assigna password 1234 a l’usuari pere per defecte sense mostrar-la a la pantalla ni guardar-la a fitxers visibles)
+* sudo usermod -aG sudo pere (afegeix a pere al grup sudo sense eliminar els altres si cal)
+
+Tot aquest procés també es pot realitzar des d’un script, la qual cosa permetria crear diversos usuaris automàticament. Per a fer-ho només caldria crear un fitxer .sh amb una forma com la de l’exemple.
+
+```
+#!/bin/bash
+sudo useradd -m -s /bin/bash -c "Anna Torres" anna
+echo "anna:contrasenyaSegura" | sudo chpasswd
+sudo useradd -m -s /bin/bash -c "Joan Vidal" joan
+echo "joan:1234" | sudo chpasswd
+```
+
+En aquest cas es crearien l’usuari Anna Torres i Joan Vidal, però es podrien afegir tants d’usuaris com sigui necessari. Un cop guardat només caldria executar-lo amb una comanda com aquesta.
+* sudo bash crear_usuaris.sh
+
+
 
 
 
