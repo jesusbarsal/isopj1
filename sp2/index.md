@@ -507,7 +507,9 @@ Si s’utilitza per exemple la comanda **sudo useradd nom_usuari**, això crea l
 
 Però hi ha la possibilitat de poder tots els passos d’un sol cop sense haver d’editar res després. Per a que això sigui possible caldria implementar la comanda de la següent manera.
 * sudo useradd -m -d /home/pere -s /bin/bash -c "Pere Martí" pere
+
 on cada apartat té el seu significat
+
 * **sudo:** Per a donar permisos d’administrador a la comanda
 * **useradd:** comanda per a inserir l’usuari
 * **-m:** Crea automàticament la carpeta personal /home/pere
