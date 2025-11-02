@@ -513,6 +513,7 @@ on cada apartat té el seu significat
 * **-s /bin/bash:** Assigna la Shell per defecte
 * **-c “Pere Marti”:** Afegeix un comentari o nom complet
 * **pere:** És el nom del nou usuari
+
 Únicament quedaria afegir la contrasenya. La contrasenya no es posa directament dintre de la comanda useradd per motius de seguretat no permet posar la contrasenya en text pla directament dins de la mateixa ordre. Això evita que la contrasenya quedi visible a la línia de comandes o registrada en l’historial del terminal (.bash_history) cosa que seria un risc. Per aquesta raó, un cop creat l’usuari es posaria la comanda sudo passwd pere per a afegir la contrasenya de forma segura.
 
 Avantatge de fer-ho tot d’una vegada és el de fer-ho tot en una sola comanda amb **useradd** estalvia temps i evita errors, ja que el sistema crea tots els elements necessaris de manera coherent: usuari, directori personal, shell i descripció. Això és especialment útil en entorns administratius o scripts automàtics on cal crear diversos usuaris de forma ràpida i controlada.
@@ -535,10 +536,186 @@ echo "joan:1234" | sudo chpasswd
 En aquest cas es crearien l’usuari Anna Torres i Joan Vidal, però es podrien afegir tants d’usuaris com sigui necessari. Un cop guardat només caldria executar-lo amb una comanda com aquesta.
 * sudo bash crear_usuaris.sh
 
+### Els grups
+#### Definició
+Un grup en Linux és un conjunt d’usuaris que comparteixen uns mateixos permisos sobre fitxers o recursos. Els grups serveixen per gestionar de manera col·lectiva els accessos i privilegis dins del sistema.
 
+Per a què serveixen els grups
+* Els grups faciliten la gestió de permisos:
+* Permeten donar accés compartit a un conjunt d’usuaris (per exemple, tots els membres del grup professors poden editar una mateixa carpeta).
+* Eviten haver de configurar els permisos usuari per usuari.
+* S’utilitzen molt en entorns amb molts usuaris, com servidors o xarxes corporatives.
 
+#### Tipus de grups
 
+* **Grup principal (primari):** Cada usuari té un grup principal assignat per defecte. Normalment, té el mateix nom que l’usuari i s’utilitza per determinar el propietari de fitxers i processos creats per aquell usuari.
+* **Grup secundari (addicional):** Un usuari pot pertànyer a diversos grups alhora. Els grups secundaris permeten donar permisos addicionals o accés a recursos compartits.
 
+#### Gestió de permisos i seguretat i organització
 
+Els grups s’utilitzen per gestionar permisos de lectura, escriptura i execució sobre fitxers i carpetes. Això permet que, per exemple, tots els usuaris del grup projecte puguin modificar fitxers dins d’una mateixa carpeta, però els altres usuaris del sistema no.
 
+Els grups ajuden a **mantenir la seguretat i l’ordre** dins d’un sistema amb molts usuaris. En lloc de donar permisos individualment, es poden donar al grup complet, fent el sistema més fàcil d’administrar.
 
+#### On trobar els grups del sistema.
+
+Si el que es necessita és saber la informació sobre els grups que hi han creats al sistema cal buscar el fitxer **group**. Aquest es troba a la carpeta **/etc** igual que el fitxer d’usuaris. Igual que el fitxer **passwd**, aquest també es pot considerar com un dels principals fitxers del sistema, conte la informació de tots els grups del sistema i els usuaris que en formen part. La comanda per a entrar al fitxer és la següent:
+
+* sudo nano /etc/group
+
+![Imatge del fitxer group](../imatges/sprint2_32.jpg)
+
+Observant el fitxer es pot observar la seva estructura.
+
+* nom_grup:x:GID:llista_usuaris
+
+On cada camp significa el següent.
+* **Nom_grup:** nom del grup
+* **x:** indica que la contrasenya del grup (si n’hi ha està guardada a /etc/gshadow)
+* **GID (group ID):** Identificador numeric unic del grup
+* **llista_usuaris:** Usuaris membres del grup, separats per comes.
+
+Cal recordar que només l’usuari **root** o un administrador pot modificar aquest fitxer. També és important tenir en compte que no és recomanable realitzar canvis dintre del fitxer.
+
+Dintre del fitxer **group** també es troben els grups del sistema, aquestos són conjunts especials creats automàticament per gestionar serveis, processos i permisos interns de Linux. Tenen GIDs baixos (menys de 1000), no estan destinats a usuaris humans, i són essencials per mantenir la seguretat i el bon funcionament del sistema operatiu.
+
+#### Comandes habituals en els grups.
+Quan es treballa amb grups hi ha diverses comandes que permeten crear, eliminar, canviar noms, afegir usuaris, etc. Entre algunes de les comandes i paràmetres existents es poden trobar aquests:
+
+* **groupadd nom:** Crea un nou grup
+* **groupdel nom:** Elimina un grup
+* **groupmod -n nou_nom antic_nom: Canvia el nom d’un grup
+* **gpasswd -a usuari grup:** Afegeix un usuari a un grup
+* **gpasswd -d usuari grup:** Elimina un usuari d’un grup
+* **groups usuari:** Mostra els grups als quals pertany un usuari
+* **id usuari:** Mostra el UID, GID i grups associats.
+* **adduser usuari grup:** afegeix un usuari dintre d’un grup
+* **deluser usuari nom_grup:** Elimina un usuari d’un grup
+
+Alguns exemples de com treballar amb grups.
+
+![Imatge de la comanda sudo addgroup](../imatges/sprint2_33.jpg)
+
+![Imatge de la comanda sudo adduser](../imatges/sprint2_34.jpg)
+
+Quan es treballa amb grups hi ha una cosa a ressaltar, l’usuari que ha instal·lat el sistema operatiu, aquest es troba dintre de molts més grups que un usuari afegit posteriorment. 
+
+Això és degut al fet que aquest rep privilegis especials d’administració, per la qual cosa és afegit automàticament a diversos grups del sistema per tal que pugui instal·lar i actualitzar programes, configurar dispositius, administrar altres usuaris i altres coses relacionades amb l’administració del sistema.
+
+![Imatge de la comanda cat](../imatges/sprint2_35.jpg)
+
+Si es vol veure informació sobre els grups, una comanda que s’utilitza bastant és la comanda **groups**, aquesta és una ordre del terminal que mostra a quins grups pertany un usuari, llegeix la informació que hi ha a **/etc/group** i la presenta d’una manera senzilla.
+
+Únicament posant la comanda **groups nom_usuari** ja mostra els grups que pertany un usuari. Si no es posa cap nom d’usuari, mostra els grups de l’usuari actual
+
+#### El fitxer gshadow
+
+El fitxer **gshadow** és on Linux guarda la informació de seguretat dels grups del sistema. Conté les **contrasenyes encriptades dels grups** (si n’hi ha), així com la llista d’administradors i membres de cada grup. Només pot ser llegit o modificat per l’usuari root, ja que emmagatzema dades sensibles.
+
+El fitxer **gshadow** es troba localitzat dintre de la carpeta **/etc/**. i per a poder accedir-hi cal posar la comanda **sudo nano /etc/gshadow.**
+
+![Imatge del fitxer gshadow](../imatges/sprint2_36.jpg)
+
+Cada línia del fitxer representa un grup i segueix aquest format:
+
+* nom_grup:contrasenya:administradors:membres
+
+El significat dels camps és el següent:
+* **nom_grup:** Nom del grup (ha de coincidir amb el del fitxer /etc/group)
+* **contrasenya:** Contrasenya del grup, si existeix (normalment ! o x perquè no s’utilitza)
+* **administradors:** Usuaris que poden afegir o eliminar membres del grup
+* **membres:** Usuaris que pertanyen al grup
+
+Com a resum, el fitxer **/etc/gshadow** desa la informació de seguretat dels grups: contrasenyes, administradors i membres. Només **root** hi pot accedir, i treballa conjuntament amb /etc/group per gestionar correctament els permisos i la seguretat dels grups del sistema.
+
+#### Els administradors de grup
+
+Els **administradors de grup** són usuaris amb permisos especials per gestionar un grup concret sense necessitat de ser l’usuari **root**. Això permet delegar part de la gestió del sistema i facilitar l’administració en entorns amb molts usuaris.
+
+Entre les funcions d’un administrador de grup es poden trobar permetre Afegir o eliminar membres d’aquell grup, Canviar la contrasenya del grup (si se’n fa servir una), Consultar la llista de membres del grup, etc. Aquests permisos s’apliquen només sobre el grup que administra, no sobre la resta del sistema.
+
+Aquests administradors de grup s’especifiquen dintre del fitxer **gshadow** en el tercer camp de cada línia. Els administradors de grup són usuaris amb privilegis per gestionar un grup concret: poden afegir o eliminar membres i canviar-ne la contrasenya.
+
+Aquesta informació es troba al fitxer **/etc/gshadow**, i permet distribuir tasques d’administració sense donar accés complet al sistema.
+
+### Les contrasenyes
+#### Definició
+
+Les contrasenyes serveixen per protegir l’accés als comptes d’usuari i garantir que només les persones autoritzades puguin utilitzar el sistema. Cada usuari en té una d’associada, que s’introdueix en iniciar sessió o en executar accions que requereixen permisos especials.
+
+#### On es guarden les contrasenyes
+Igual que els usuaris i els grups, també es troba l’arxiu on es guarden les contrasenyes. Aquest arxiu s’anomena **shadow**, inicialment les contrasenyes es trobaven dintre del fitxer **passwd** conjuntament amb els usuaris, però com que representava un risc de seguretat en ser un fitxer llegible per tots els usuaris, actualment les contrasenyes es guarden xifrades en el fitxer **shadow**.
+
+El fitxer **shadow** es troba a la carpeta **/etc/** i només l’usuari root o el sistema pot llegir o modificar aquest fitxer. Per a poder accedir al fitxer es posarà la comanda.
+* sudo nano /etc/shadow
+
+![Imatge del fitxer shadow](../imatges/sprint2_37.jpg)
+
+Cada línia del fitxer representa un usuari del sistema i segueix el format:
+
+* nom_usuari:contrasenya_encriptada:data_últim_canvi:min:max:avís:inactiu:caducitat
+
+El significat dels camps és el següent:
+* **Nom_usuari:** Nom de l’usuari
+* **contrasenya_encriptada:** Contrasenya xifrada amb un olgaritme (el prefix $6$ indica que s’ha usat SHA-512)
+* **data_ultim_canvi:** Nombre de dies des del 1/1/1970 fins a l’últim canvi de contrasenya
+* min:** Dies mínims que es pugui canviar la contrasenya
+* **max:** Dies màxims abans que caduqui la contrasenya
+* **avis:** Dies d’avis abans que la contrasenya caduqui.
+* **inactiu:** Dies després de la caducitat en què el compte queda inactiu.
+* **caducitat:** Data exacta en què el compte deixa d’estar actiu.
+
+Com a observació al fitxer cal afegir que la majoria d’usuaris com systemd-oom, sssd, dnsmasq, avahi, etc. no tenen contrasenya d’inici de sessió. Això es veu pels símbols ! o * al segon camp. Són usuaris del sistema utilitzats per serveis interns i no poden iniciar sessió
+
+Cal tornar a remarca que el fitxer **/etc/shadow** no pot ser llegit per altres usuaris, només per root. Si algú aconsegueix accedir-hi, podria intentar trencar les contrasenyes mitjançant tècniques de força bruta. Per això, les contrasenyes es guarden en format hash i amb un salt aleatori que fa molt difícil revertir-les.
+
+#### Comandes per gestionar contrasenyes
+
+Hi ha diverses comandes que permeten gestionar les contrasenyes, moltes d’aquestes comandes requereixen tenir permisos de **root**. Algunes de les comandes són les següents.
+* **sudo passwd usuari:** canvia la contrasenya de l’usuari usuari
+* **passwd:** canvia la pròpia contrasenya
+* **passwd -d:** Elimina la contrasenya d’un compte
+* **sudo chpasswd:** Canvia contrasenyes de diversos usuaris a la vegada d’es d’un fitxer o entrada
+
+Alguns exemples de canvis de contrasenya
+
+![Imatge comanda sudo passwd](../imatges/sprint2_38.jpg)
+
+### L’aplicació gnome-system-tools
+Quan **gnome-system-tools** va aparèixer, Linux no tenia eines gràfiques modernes integrades com les que coneixem avui (p. ex. Configuració o Settings de GNOME). Aleshores, gnome-system-tools actuava com un “centre de control” independent per a afegir o eliminar usuaris i grups, configurar la xarxa (IP, DNS, passarel·les...), canviar la data, hora o zona horària, activar o desactivar serveis del sistema, compartir carpetes localment (Samba/NFS) entre altres
+
+Era molt útil perquè permetia fer des de l’entorn gràfic coses que fins llavors només es podien fer amb ordres del terminal. Avui dia, totes aquestes funcions ja estan **integrades nativament** dins del mateix GNOME o altres escriptoris:
+
+Això fa que gnome-system-tools sigui redundant, ja que fa el mateix però amb una interfície antiga i menys compatible. L’aplicació no s’ha actualitzat durant anys (el seu desenvolupament pràcticament es va aturar cap al 2015).
+
+GNOME i altres entorns moderns ja porten eines pròpies més integrades i segures. Algunes funcionalitats de gnome-system-tools no funcionen bé en versions modernes de Linux, perquè els mètodes de gestió del sistema (com systemd o NetworkManager) han canviat. Per això, moltes distribucions ja no la instal·len per defecte.
+
+Podríem dir que **gnome-system-tools** està obsoleta o en desús, però encara es pot instal·lar i funcionar parcialment en alguns sistemes. No està “trencada”, però ja no rep manteniment ni millores. Pot anar bé per a entorns educatius o per mostrar com era la gestió gràfica antiga de Linux, però no s’aconsella utilitzar-la en sistemes moderns o de producció.
+
+Si es volgués instal·lar caldria posar la comanda
+* sudo apt install gnome-system-tools
+
+![Pantalla de l'aplicació gnome-system-tools](../imatges/sprint2_39.jpg)
+
+Un cop instal·lat ja apareix una icona a l’apartat de les aplicacions i si es polsa apareix la pantalla que es veu a la imatge on des d’alli es poden realitzar els canvis.
+
+### Els permisos
+#### Definició
+
+Els permisos tenen la funció de controlar l’accés als fitxers, carpetes i recursos del sistema. Gràcies a ells es pot garantir la seguretat, l’ordre i la privadesa dels usuaris evitant que un usuari modifiqui o esborri fitxers d’un altre. S’apliquen a tres nivells (usuari, grup i altres) i es poden gestionar amb comandes com chmod, chown i chgrp.
+
+#### Propietat dels fitxers
+Cada fitxer o carpeta a Linux té tres nivells de propietat:
+
+* **Usuari (owner):** és el propietari del fitxer (normalment qui el crea).
+* **Grup (group):** és el grup al qual pertany el fitxer; tots els membres del grup comparteixen uns mateixos permisos.
+* **Altres (others):** Tots els altres usuaris del sistema.
+
+#### Tipus de permisos
+
+* **Lectura	    r (read)**	Permet llegir el contingut del fitxer o llistar una carpeta
+* **Escriptura	    w (write)**	Permet modificar o eliminar el fitxer o dintre d’una carpeta
+* **Execució	   x (execute)**	Permet executar un fitxer com a programa o entrar en una carpeta.
+#### Com es representen
+
+La forma de veure els permisos és fent un ls -l on es mostra una línia com aquesta
