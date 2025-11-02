@@ -586,7 +586,7 @@ Quan es treballa amb grups hi ha diverses comandes que permeten crear, eliminar,
 
 * **groupadd nom:** Crea un nou grup
 * **groupdel nom:** Elimina un grup
-* **groupmod -n nou_nom antic_nom: Canvia el nom d’un grup
+* **groupmod -n nou_nom antic_nom:** Canvia el nom d’un grup
 * **gpasswd -a usuari grup:** Afegeix un usuari a un grup
 * **gpasswd -d usuari grup:** Elimina un usuari d’un grup
 * **groups usuari:** Mostra els grups als quals pertany un usuari
