@@ -369,3 +369,29 @@ Per tant, per a entendre les diferències entre una relació i una partició i u
 * Una partició és una divisió del disc físic.
 * Un volum és la unitat lògica creada a partir d’una o més particions.
 * Normalment, hi ha una relació d’1 a 1 (una partició = un volum), però en sistemes més avançats (com LVM o RAID) diverses particions poden formar un únic volum, o un volum pot estar repartit en diversos discs físics.
+
+# Gestió d’usuaris, grups i permisos
+## Fitxers importants
+### Els usuaris
+#### Definició
+
+Un usuari en Linux és una identitat individual que pot iniciar sessió i utilitzar el sistema. Cada usuari té un nom, un identificador únic (UID), un directori personal i uns permisos que determinen què pot fer dins del sistema.
+
+#### Un usuari pot arribar a servir per:
+* Identificar qui utilitza el sistema.
+* Controlar l’accés als fitxers i recursos.
+* Separar els entorns de treball de cada persona o procés.
+* Garantir la seguretat, ja que cada usuari només pot fer allò per al que té permisos.
+
+#### Perquè es creen els usuaris
+* Es creen els usuaris per organitzar i protegir el sistema:
+* Cada persona té el seu directori personal i la seva contrasenya.
+* Es pot limitar què pot fer cadascú (per exemple, alguns poden instal·lar programes i altres no).
+* També hi ha usuaris del sistema (com root, daemon, www-data, etc.) que s’utilitzen perquè els serveis del sistema funcionin de manera segura i separada.
+
+
+
+
+
+
+
