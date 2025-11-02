@@ -663,7 +663,7 @@ El significat dels camps és el següent:
 * **Nom_usuari:** Nom de l’usuari
 * **contrasenya_encriptada:** Contrasenya xifrada amb un olgaritme (el prefix $6$ indica que s’ha usat SHA-512)
 * **data_ultim_canvi:** Nombre de dies des del 1/1/1970 fins a l’últim canvi de contrasenya
-* min:** Dies mínims que es pugui canviar la contrasenya
+* **min:** Dies mínims que es pugui canviar la contrasenya
 * **max:** Dies màxims abans que caduqui la contrasenya
 * **avis:** Dies d’avis abans que la contrasenya caduqui.
 * **inactiu:** Dies després de la caducitat en què el compte queda inactiu.
