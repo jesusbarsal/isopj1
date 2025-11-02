@@ -371,25 +371,24 @@ Per tant, per a entendre les diferències entre una relació i una partició i u
 * Normalment, hi ha una relació d’1 a 1 (una partició = un volum), però en sistemes més avançats (com LVM o RAID) diverses particions poden formar un únic volum, o un volum pot estar repartit en diversos discs físics.
 
 # Gestió d’usuaris, grups i permisos
-## Fitxers importants
-### Els usuaris
-#### Definició
+## Els usuaris
+### Definició
 
 Un usuari en Linux és una identitat individual que pot iniciar sessió i utilitzar el sistema. Cada usuari té un nom, un identificador únic (UID), un directori personal i uns permisos que determinen què pot fer dins del sistema.
 
-#### Un usuari pot arribar a servir per:
+### Un usuari pot arribar a servir per:
 * Identificar qui utilitza el sistema.
 * Controlar l’accés als fitxers i recursos.
 * Separar els entorns de treball de cada persona o procés.
 * Garantir la seguretat, ja que cada usuari només pot fer allò per al que té permisos.
 
-#### Perquè es creen els usuaris
+### Perquè es creen els usuaris
 * Es creen els usuaris per organitzar i protegir el sistema:
 * Cada persona té el seu directori personal i la seva contrasenya.
 * Es pot limitar què pot fer cadascú (per exemple, alguns poden instal·lar programes i altres no).
 * També hi ha usuaris del sistema (com root, daemon, www-data, etc.) que s’utilitzen perquè els serveis del sistema funcionin de manera segura i separada.
 
-#### Tots els usuaris tenen els mateixos permisos?
+### Tots els usuaris tenen els mateixos permisos?
 
 No. Hi ha diferents nivells de permisos:
 
@@ -397,7 +396,7 @@ No. Hi ha diferents nivells de permisos:
 * **Usuari administrador (root):** té tots els privilegis del sistema i pot fer qualsevol canvi.
 * **Usuaris de sistema:** no inicien sessió, serveixen per executar serveis o processos.
 
-#### On trobar els usuaris al sistema.
+### On trobar els usuaris al sistema.
 
 En Linux, la gestió dels usuaris es realitza des del fitxer passwd. Aquest fitxer és un dels fitxers més importants del sistema operatiu i es pot localitzar dintre de la carpeta /etc/. Per a accedir-hi cal posar la següent comanda.
 * sudo nano /etc/passwd
@@ -408,12 +407,12 @@ La funció d’aquest fitxer és la de guardar la informació bàsica de tots el
 
 Permet associar-los amb els seus UID, grups, directoris personals i shells, a més permet que el sistema sàpiga qui és cada usuari i que pot fer.
 
-#### L’estructura d’una línia és la següent.
+### L’estructura d’una línia és la següent.
 
 * nom_usuari:x:UID:GID:comentari:directori_personal:shell
 * jesus:x:1000:1000:jesus:/home/jesus: /bin/bash (Exemple real)
 
-#### El significat de cada camp és el següent:
+### El significat de cada camp és el següent:
 * **nom_usuari:** És el nom amb què l’usuari inicia sessió
 * **x:** Indica que la contrasenya està xifrada al fitxer /etc/shadow
 * **UID:** Identificador numèric únic de l’usuari
@@ -432,7 +431,7 @@ Els usuaris del sistema es poden distingir perquè normalment tenen un identific
 
 A més, els usuaris del sistema sovint no tenen directori personal a /home ni una shell activa (apareix com /usr/sbin/nologin o, ja que no estan pensats per iniciar sessió, sinó per fer funcionar serveis del sistema. A la imatge anterior es pot veure el que s’explica aquí aplicat a la pràctica.
 
-#### Com crear un usuari
+### Com crear un usuari
 
 En Linux, per a crear un usuari principalment es pot fer bé per la part gràfica entrant a la configuració del sistema, o bé pel terminal amb comandes. Per l’entorn gràfic si es va a paràmetres, opció Sistema.
 
@@ -454,7 +453,7 @@ Un cop ja creat l’usuari, es pot fer una consulta per tal de comprovar que l�
 
 Si s’utilitza la comanda com s’aprecia a la imatge ens mostra l’usuari creat amb totes les seves dades que s’han generat dintre del sistema.
 
-#### Com eliminar un usuari
+### Com eliminar un usuari
 
 Per a esborrar un usuari del sistema també es pot esborrar des de la part gràfica, però en aquest cas ens centrarem en l’apartat del Terminal, ja que com ja hem dit, les opcions són molt més completes que en l’entorn gràfic. Per a esborrar un usuari s’utilitzarà la comanda **sudo userdel nom_usuari**. Només els usuaris amb permisos de **root** poden eliminar comptes. Comandes a utilitzar per a esborrar un usuari.
 
@@ -465,7 +464,7 @@ Per a esborrar un usuari del sistema també es pot esborrar des de la part gràf
 
 Quan s’esborra un usuari, és borr*a també la seva entrada dels fitxers del sistema (/etc/passwd, /etc/shadow i /etc/group).
 
-#### Modificar usuari
+### Modificar usuari
 La principal comanda per a modificar un usuari és la comanda usermod, la sintaxi de la comanda és: 
 * sudo usermod (opcions) nom_usuari
 
@@ -486,7 +485,7 @@ Alguns exemples de les comandes utilitzades per a modificar usuaris.
 ![Imatge de la comanda usermod -L](../imatges/sprint2_30.jpg)
 ![Imatge de la comanda usermod -U](../imatges/sprint2_31.jpg)
 
-#### Canviar el nom de l’usuari
+### Canviar el nom de l’usuari
 Quan es parla de canviar el nom d’usuari, aquest es pot realitzar de diferents maneres, una que seria canviar el nom de forma visible, però una altra cosa diferent i que no és el mateix és canviar-lo completament dins del sistema, incloent-hi la carpeta personal /home, permisos i referències internes.
 
 Abans de realitzar un compte complet d’usuari, és convenient realitzar una còpia de seguretat per si hi ha errors. És una feina que s’ha d’executar com a usuari root o amb sudo i cal tenir en compte que no es pot realitzar mentre es tingui la sessió oberta, per la qual cosa caldria disposar d’un altre usuari amb permisos d’administrador al sistema.
@@ -500,7 +499,7 @@ El perquè no es pot fer tot de cop és degut al fet que cada element pertany a 
 
 Aquí s’ha vist fer-ho des del terminal, però és possible fer això des de l’entorn gràfic? La resposta seria que des de l’entorn gràfic només permet canviar el nom visible i algunes dades bàsiques, per canviar completament un usuari (nom intern, carpeta /home, permisos i rutes), només es pot fer des del terminal i amb les comandes abans comentades.
 
-#### Creació d’un usuari complet amb una sola comanda.
+### Creació d’un usuari complet amb una sola comanda.
 La comanda **useradd** s’utilitza per crear usuaris de manera manual al sistema Linux. Per defecte, si s’executa sense opcions, només afegeix l’entrada de l’usuari als fitxers del sistema (/etc/passwd, /etc/shadow, /etc/group), però no crea el directori personal ni la resta d’elements necessaris.
 
 Si s’utilitza per exemple la comanda **sudo useradd nom_usuari**, això crea l’usuari, però no genera automàticament la carpeta /home/nom_usuari, no assigna cap shell d’inici, no posa cap contrasenya i no crea cap grup amb el mateix nom. És a dir, l’usuari existeix al sistema, però no pot iniciar sessió fins que es completen els altres passos manualment.
@@ -540,8 +539,8 @@ echo "joan:1234" | sudo chpasswd
 En aquest cas es crearien l’usuari Anna Torres i Joan Vidal, però es podrien afegir tants d’usuaris com sigui necessari. Un cop guardat només caldria executar-lo amb una comanda com aquesta.
 * sudo bash crear_usuaris.sh
 
-### Els grups
-#### Definició
+## Els grups
+### Definició
 Un grup en Linux és un conjunt d’usuaris que comparteixen uns mateixos permisos sobre fitxers o recursos. Els grups serveixen per gestionar de manera col·lectiva els accessos i privilegis dins del sistema.
 
 Per a què serveixen els grups
@@ -550,18 +549,18 @@ Per a què serveixen els grups
 * Eviten haver de configurar els permisos usuari per usuari.
 * S’utilitzen molt en entorns amb molts usuaris, com servidors o xarxes corporatives.
 
-#### Tipus de grups
+### Tipus de grups
 
 * **Grup principal (primari):** Cada usuari té un grup principal assignat per defecte. Normalment, té el mateix nom que l’usuari i s’utilitza per determinar el propietari de fitxers i processos creats per aquell usuari.
 * **Grup secundari (addicional):** Un usuari pot pertànyer a diversos grups alhora. Els grups secundaris permeten donar permisos addicionals o accés a recursos compartits.
 
-#### Gestió de permisos i seguretat i organització
+### Gestió de permisos i seguretat i organització
 
 Els grups s’utilitzen per gestionar permisos de lectura, escriptura i execució sobre fitxers i carpetes. Això permet que, per exemple, tots els usuaris del grup projecte puguin modificar fitxers dins d’una mateixa carpeta, però els altres usuaris del sistema no.
 
 Els grups ajuden a **mantenir la seguretat i l’ordre** dins d’un sistema amb molts usuaris. En lloc de donar permisos individualment, es poden donar al grup complet, fent el sistema més fàcil d’administrar.
 
-#### On trobar els grups del sistema.
+### On trobar els grups del sistema.
 
 Si el que es necessita és saber la informació sobre els grups que hi han creats al sistema cal buscar el fitxer **group**. Aquest es troba a la carpeta **/etc** igual que el fitxer d’usuaris. Igual que el fitxer **passwd**, aquest també es pot considerar com un dels principals fitxers del sistema, conte la informació de tots els grups del sistema i els usuaris que en formen part. La comanda per a entrar al fitxer és la següent:
 
@@ -583,7 +582,7 @@ Cal recordar que només l’usuari **root** o un administrador pot modificar aqu
 
 Dintre del fitxer **group** també es troben els grups del sistema, aquestos són conjunts especials creats automàticament per gestionar serveis, processos i permisos interns de Linux. Tenen GIDs baixos (menys de 1000), no estan destinats a usuaris humans, i són essencials per mantenir la seguretat i el bon funcionament del sistema operatiu.
 
-#### Comandes habituals en els grups.
+### Comandes habituals en els grups.
 Quan es treballa amb grups hi ha diverses comandes que permeten crear, eliminar, canviar noms, afegir usuaris, etc. Entre algunes de les comandes i paràmetres existents es poden trobar aquests:
 
 * **groupadd nom:** Crea un nou grup
@@ -612,7 +611,7 @@ Si es vol veure informació sobre els grups, una comanda que s’utilitza bastan
 
 Únicament posant la comanda **groups nom_usuari** ja mostra els grups que pertany un usuari. Si no es posa cap nom d’usuari, mostra els grups de l’usuari actual
 
-#### El fitxer gshadow
+### El fitxer gshadow
 
 El fitxer **gshadow** és on Linux guarda la informació de seguretat dels grups del sistema. Conté les **contrasenyes encriptades dels grups** (si n’hi ha), així com la llista d’administradors i membres de cada grup. Només pot ser llegit o modificat per l’usuari root, ja que emmagatzema dades sensibles.
 
@@ -632,7 +631,7 @@ El significat dels camps és el següent:
 
 Com a resum, el fitxer **/etc/gshadow** desa la informació de seguretat dels grups: contrasenyes, administradors i membres. Només **root** hi pot accedir, i treballa conjuntament amb /etc/group per gestionar correctament els permisos i la seguretat dels grups del sistema.
 
-#### Els administradors de grup
+### Els administradors de grup
 
 Els **administradors de grup** són usuaris amb permisos especials per gestionar un grup concret sense necessitat de ser l’usuari **root**. Això permet delegar part de la gestió del sistema i facilitar l’administració en entorns amb molts usuaris.
 
@@ -642,12 +641,12 @@ Aquests administradors de grup s’especifiquen dintre del fitxer **gshadow** en
 
 Aquesta informació es troba al fitxer **/etc/gshadow**, i permet distribuir tasques d’administració sense donar accés complet al sistema.
 
-### Les contrasenyes
-#### Definició
+## Les contrasenyes
+### Definició
 
 Les contrasenyes serveixen per protegir l’accés als comptes d’usuari i garantir que només les persones autoritzades puguin utilitzar el sistema. Cada usuari en té una d’associada, que s’introdueix en iniciar sessió o en executar accions que requereixen permisos especials.
 
-#### On es guarden les contrasenyes
+### On es guarden les contrasenyes
 Igual que els usuaris i els grups, també es troba l’arxiu on es guarden les contrasenyes. Aquest arxiu s’anomena **shadow**, inicialment les contrasenyes es trobaven dintre del fitxer **passwd** conjuntament amb els usuaris, però com que representava un risc de seguretat en ser un fitxer llegible per tots els usuaris, actualment les contrasenyes es guarden xifrades en el fitxer **shadow**.
 
 El fitxer **shadow** es troba a la carpeta **/etc/** i només l’usuari root o el sistema pot llegir o modificar aquest fitxer. Per a poder accedir al fitxer es posarà la comanda.
@@ -673,7 +672,7 @@ Com a observació al fitxer cal afegir que la majoria d’usuaris com systemd-oo
 
 Cal tornar a remarca que el fitxer **/etc/shadow** no pot ser llegit per altres usuaris, només per root. Si algú aconsegueix accedir-hi, podria intentar trencar les contrasenyes mitjançant tècniques de força bruta. Per això, les contrasenyes es guarden en format hash i amb un salt aleatori que fa molt difícil revertir-les.
 
-#### Comandes per gestionar contrasenyes
+### Comandes per gestionar contrasenyes
 
 Hi ha diverses comandes que permeten gestionar les contrasenyes, moltes d’aquestes comandes requereixen tenir permisos de **root**. Algunes de les comandes són les següents.
 * **sudo passwd usuari:** canvia la contrasenya de l’usuari usuari
@@ -685,7 +684,7 @@ Alguns exemples de canvis de contrasenya
 
 ![Imatge comanda sudo passwd](../imatges/sprint2_38.jpg)
 
-### L’aplicació gnome-system-tools
+## L’aplicació gnome-system-tools
 Quan **gnome-system-tools** va aparèixer, Linux no tenia eines gràfiques modernes integrades com les que coneixem avui (p. ex. Configuració o Settings de GNOME). Aleshores, gnome-system-tools actuava com un “centre de control” independent per a afegir o eliminar usuaris i grups, configurar la xarxa (IP, DNS, passarel·les...), canviar la data, hora o zona horària, activar o desactivar serveis del sistema, compartir carpetes localment (Samba/NFS) entre altres
 
 Era molt útil perquè permetia fer des de l’entorn gràfic coses que fins llavors només es podien fer amb ordres del terminal. Avui dia, totes aquestes funcions ja estan **integrades nativament** dins del mateix GNOME o altres escriptoris:
@@ -703,24 +702,24 @@ Si es volgués instal·lar caldria posar la comanda
 
 Un cop instal·lat ja apareix una icona a l’apartat de les aplicacions i si es polsa apareix la pantalla que es veu a la imatge on des d’alli es poden realitzar els canvis.
 
-### Els permisos
-#### Definició
+## Els permisos
+### Definició
 
 Els permisos tenen la funció de controlar l’accés als fitxers, carpetes i recursos del sistema. Gràcies a ells es pot garantir la seguretat, l’ordre i la privadesa dels usuaris evitant que un usuari modifiqui o esborri fitxers d’un altre. S’apliquen a tres nivells (usuari, grup i altres) i es poden gestionar amb comandes com chmod, chown i chgrp.
 
-#### Propietat dels fitxers
+### Propietat dels fitxers
 Cada fitxer o carpeta a Linux té tres nivells de propietat:
 
 * **Usuari (owner):** és el propietari del fitxer (normalment qui el crea).
 * **Grup (group):** és el grup al qual pertany el fitxer; tots els membres del grup comparteixen uns mateixos permisos.
 * **Altres (others):** Tots els altres usuaris del sistema.
 
-#### Tipus de permisos
+### Tipus de permisos
 
 * **Lectura	    r (read)**	Permet llegir el contingut del fitxer o llistar una carpeta
 * **Escriptura	    w (write)**	Permet modificar o eliminar el fitxer o dintre d’una carpeta
 * **Execució	   x (execute)**	Permet executar un fitxer com a programa o entrar en una carpeta.
-#### Com es representen
+### Com es representen
 
 La forma de veure els permisos és fent un ls -l on es mostra una línia com aquesta
 
@@ -736,7 +735,7 @@ Això es llegeix així
 
 ![Imatge dels permisos](../imatges/sprint2_41.jpg)
 
-#### Representació numèrica
+### Representació numèrica
 Els permisos també poden expressar-se amb valors numèrics (octals):
 
 Exemples
@@ -754,6 +753,3 @@ Comandes principals per a modificar permisos
 * **chmod:** Canvia els permisos
 * **chown:** Canvia el propietari d’un fitxer
 * **chgrp:** Canvia el grup propietari
-
-
-
