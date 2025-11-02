@@ -723,3 +723,37 @@ Cada fitxer o carpeta a Linux té tres nivells de propietat:
 #### Com es representen
 
 La forma de veure els permisos és fent un ls -l on es mostra una línia com aquesta
+
+![Imatge relacionada amb els permisos](../imatges/sprint2_40.jpg)
+
+Això es llegeix així
+
+* drwx-rwx-rwx
+   * **rwx**	Permisos de l’usuari (propietari) (Lectura, escriptura i execució)
+   * **r-x**	Permisos del grup (Lectura i execució)
+   * **r- -**	Permisos per a altres (només lectura)
+   * **d---**	Es un directori
+
+![Imatge dels permisos](../imatges/sprint2_41.jpg)
+
+#### Representació numèrica
+Els permisos també poden expressar-se amb valors numèrics (octals):
+
+Exemples
+* **rwx**	4+2+1 = 7
+* **rw**	4+2+0 = 6
+* **r--** 	4+0+0 = 4
+
+la seva aplicació podria fer-se de la següent manera:
+
+* chmod 754 fitxer.txt
+
+Comandes principals per a modificar permisos
+
+* **ls -l:** Mostra els permisos dels fitxers
+* **chmod:** Canvia els permisos
+* **chown:** Canvia el propietari d’un fitxer
+* **chgrp:** Canvia el grup propietari
+
+
+
