@@ -469,6 +469,7 @@ Quan s’esborra un usuari, és borr*a també la seva entrada dels fitxers del s
 La principal comanda per a modificar un usuari és la comanda usermod, la sintaxi de la comanda és: 
 * sudo usermod (opcions) nom_usuari
 Algunes de les opcions més habituals de la comanda són les següents:
+
 * **-l nou_nom:** Canvia el nom de l’usuari
 * **-d /nova/ruta:** Canvia el directori personal
 * **-m:** mou els fitxers al nou directori personal
