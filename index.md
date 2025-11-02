@@ -31,7 +31,7 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
        - [Instal·lació aplicació prioritzant una versió i/o repositori concret](sp1/index.md#installaci%C3%B3-aplicaci%C3%B3-prioritzant-una-versi%C3%B3-io-repositori-concret-pinned-version))
 
 **Unitat 1. Sprint2: instal·lació, configuració de programari de base i gestio de fitxers**
-   - [Sistemes de fitxers i particions](/sp2/index.md#sistemes-de-fitxers-i-particions)
+   - **[Sistemes de fitxers i particions]**(/sp2/index.md#sistemes-de-fitxers-i-particions)
        - [Mida sector](/sp2/index.md#mida-sector)
        - [Mida block](/sp2/index.md#mida-block)
        - [Fragmentació interna](/sp2/index.md#fragmentaci%C3%B3-interna)
@@ -56,7 +56,7 @@ El contingut està baix la llicencia [Creative Commons BY-NC-SA 4.0 Internaciona
             - [La comanda e4defrag](/sp2/index.md#la-comanda-e4defrag)
         - [Particions i volums](/sp2/index.md#particions-i-volums)
           
-   - [Gestió d'usuaris, grups i permisos](/sp2/index.md#gesti%C3%B3-dusuaris-grups-i-permisos)
+   - **[Gestió d'usuaris, grups i permisos]**(/sp2/index.md#gesti%C3%B3-dusuaris-grups-i-permisos)
       - [Fitxers importants](/sp2/index.md#fitxers-importants)
          - [Els usuaris](/sp2/index.md#els-usuaris)
              - [Definició](/sp2/index.md#definici%C3%B3)
